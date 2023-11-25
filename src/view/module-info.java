@@ -1,8 +1,3 @@
-/**
- * 
- */
-/**
- * 
- */
+
 module Reserva_hotel {
 }
