@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InterfaceLogin {
 
@@ -49,32 +52,41 @@ public class InterfaceLogin {
 		JLabel lblNewLabel = new JLabel("Login");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 26));
-		lblNewLabel.setBounds(182, 10, 73, 47);
+		lblNewLabel.setBounds(182, 0, 73, 47);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("E-mail");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(30, 95, 55, 39);
+		lblNewLabel_1.setBounds(85, 53, 55, 39);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setBounds(30, 134, 225, 19);
+		textField.setBounds(85, 91, 225, 19);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Senha");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(30, 163, 55, 39);
+		lblNewLabel_1_1.setBounds(85, 112, 55, 39);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(30, 198, 225, 19);
+		textField_1.setBounds(85, 150, 225, 19);
 		frame.getContentPane().add(textField_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Cadastre-se aqui.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_2.setBounds(161, 244, 130, 19);
+		JLabel lblNewLabel_2 = new JLabel("Não possui uma conta? Cadastre-se aqui.");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(85, 234, 310, 19);
 		frame.getContentPane().add(lblNewLabel_2);
+		
+		JButton btnNewButton = new JButton("Entrar");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(225, 179, 85, 21);
+		frame.getContentPane().add(btnNewButton);
 	}
 }
