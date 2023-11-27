@@ -22,6 +22,7 @@ public class InterfacePagamento {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JTextField textField_7;
 
 	/**
 	 * Launch the application.
@@ -51,7 +52,7 @@ public class InterfacePagamento {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 498, 356);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -81,7 +82,7 @@ public class InterfacePagamento {
 		frame.getContentPane().add(lblValor);
 		
 		JButton btnNewButton = new JButton("Pagar");
-		btnNewButton.setBounds(329, 232, 85, 21);
+		btnNewButton.setBounds(389, 288, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JLabel lblNmeroCarto = new JLabel("Número Cartão");
@@ -143,5 +144,20 @@ public class InterfacePagamento {
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"A vista", "1x", "2x", "3x", "4x"}));
 		comboBox.setBounds(315, 193, 108, 21);
 		frame.getContentPane().add(comboBox);
+		
+		JLabel lblNewLabel_1 = new JLabel("Ou");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblNewLabel_1.setBounds(342, 224, 38, 29);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblPix = new JLabel("Pix");
+		lblPix.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPix.setBounds(276, 260, 29, 20);
+		frame.getContentPane().add(lblPix);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(315, 259, 108, 19);
+		frame.getContentPane().add(textField_7);
 	}
 }
