@@ -14,9 +14,7 @@ public class Cartao {
 	}
 
 	public void cadastrarCartao(String cvv, double valor, int qtdParcela, String numero, String dataVencimento) {
-		//int id = this.bd.novoID();
-		this.adicionarDados(cvv, this.getValor(), qtdParcela, numero, dataVencimento);
-		//this.bd.cadastrar(this.toString());		
+		this.adicionarDados(cvv, this.getValor(), qtdParcela, numero, dataVencimento);	
 		System.out.println("cartao cadastrado com sucesso");
 	}
 	
@@ -82,7 +80,4 @@ public class Cartao {
 		return "Cartao [valor:" + valor + ", numero=" + numero + ", cvv=" + cvv + ", qtdParcela=" + qtdParcela
 				+ ", dataVencimento=" + dataVencimento + "]";
 	}
-	
-	
-	
 }

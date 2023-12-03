@@ -51,11 +51,11 @@ public class Quarto {
 	}
 
 	public void reserva() {
-        this.disponivel = false;
+        this.setDisponivel(false);
     }
 
 	public void libera() {
-		this.disponivel = true;
+		this.setDisponivel(true);
 	}
 	
 	public double getPreco() {

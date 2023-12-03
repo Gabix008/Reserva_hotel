@@ -76,7 +76,7 @@ public class Hotel {
 	
 	public boolean fazerReserva(int id) {
 	  Quarto quarto = quartos.get(id);
-	    if (quarto!=null &&quarto.isDisponivel()) {
+	    if (quarto != null && quarto.isDisponivel()) {
 	      quarto.reserva();
 	     System.out.println("Reserva do quarto " + id + " feita com sucesso.");
 	      return true;
