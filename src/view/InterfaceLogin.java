@@ -75,11 +75,6 @@ public class InterfaceLogin {
 		senha.setBounds(85, 150, 225, 19);
 		frame.getContentPane().add(senha);
 		
-		JLabel lblNewLabel_2 = new JLabel("Não possui uma conta? Cadastre-se aqui.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(85, 234, 310, 19);
-		frame.getContentPane().add(lblNewLabel_2);
-		
 		JButton btnNewButton = new JButton("Entrar");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -89,6 +84,10 @@ public class InterfaceLogin {
 		});
 		btnNewButton.setBounds(225, 179, 85, 21);
 		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Não tem uma conta? Cadastre-se aqui\r\n");
+		btnNewButton_1.setBounds(85, 232, 225, 21);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 
 	public JFrame getFrame() {
