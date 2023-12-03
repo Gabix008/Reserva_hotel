@@ -5,16 +5,13 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class ArquivoUsuario {
+public class ArquivoHotel {
 	private String path;
 
-	public ArquivoUsuario(String path) {
+	public ArquivoHotel(String path) {
 		super();
 		this.path = path;
 	}
@@ -26,31 +23,6 @@ public class ArquivoUsuario {
 
 		} catch (IOException e) {
 			System.out.println("Ocorreu um erro ao criar o arquivo: " + e.getMessage());
-		}
-	}
-
-	public void leitor() {
-		try {
-			// Pega o caminho do arquivo
-			String caminho = System.getProperty("user.dir");
-
-			// Cria o FileReader com o nome do arquivo//ler arquivos de forma assincrona//
-			FileReader fileReader = new FileReader(caminho + "/" + this.getPath());
-
-			// Cria o BufferedReader para leitura do arquivo
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-			String linha;
-
-			// Lê cada linha do arquivo e imprime
-			while ((linha = bufferedReader.readLine()) != null) {
-
-			}
-
-			// Fecha o BufferedReader
-			bufferedReader.close();
-		} catch (IOException e) {
-			System.out.println("Ocorreu um erro ao ler o arquivo: " + e.getMessage());
 		}
 	}
 
@@ -144,7 +116,7 @@ public class ArquivoUsuario {
 		} catch (IOException e) {
 			System.out.println("Ocorreu um erro ao ler o arquivo: " + e.getMessage());
 		}
-		return 0;
+		return 1;
 	}
 
 	public void excluir(int id) {

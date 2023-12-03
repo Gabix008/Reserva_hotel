@@ -4,27 +4,35 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Hotel {
+	private int id;
 	private String nome;
 	private String endereco;
+	private String cidade;
 	private Map<Integer, Quarto> quartos = new HashMap<>();
 	private String descricao;
 	private boolean pagamentoAnte;
-
-
+	private ArquivoHotel bd;
+	private ArquivoQuarto bdQuarto;
 	
-	public Hotel(String nome, String endereco, String descricao, boolean pagamentoAnte) {
+	public Hotel() {
 		super();
-		this.nome = nome;
-		this.endereco = endereco;
-		this.descricao = descricao;
-		this.pagamentoAnte = pagamentoAnte;
-	//	this.fazerReserva(0);
-		//this.liberarQuarto(1);
+		this.bd = new ArquivoHotel("BancoHotel.txt");
+		this.bdQuarto = new ArquivoQuarto("BancoQuarto.txt");
+	}
+	
+	public void cadastrar(String nome, String endereco, String descricao, String cidade, boolean pagamentoAnte) {
+		this.setNome(nome); 
+		this.setPagamentoAnte(pagamentoAnte);
+		this.setDescricao(descricao);
+		this.setEndereco(endereco);
+		this.setCidade(cidade);
+		this.setId(this.bd.novoID());
+		this.bd.cadastrar(this.toString());
 	}
 
-	public void cadastrarQuarto(Usuario usuario, double preco, String decricao, int qtdCama) {
+	public void cadastrarQuarto(Usuario usuario, double preco, String decricao, int qtdCamaCasal, int qtdCamaSolterio) {
 		boolean permissao = usuario.validarPermissao();
-		boolean status = this.validarDados(preco, decricao, qtdCama);
+		boolean status = this.validarDados(preco, decricao, qtdCamaCasal, qtdCamaSolterio);
 		Map<Integer, Quarto> quartos = new HashMap<>();
 		
 		if(!permissao) {
@@ -37,41 +45,64 @@ public class Hotel {
 			return;
 		}	
 	
-		Quarto quarto = new Quarto(preco, decricao, qtdCama, this.getQuartos().size()+1);
+		Quarto quarto = new Quarto();
+		quarto.cadastrar(preco, decricao, qtdCamaCasal, qtdCamaSolterio, this.getId());
 		
 		quartos.put(this.getQuartos().size()+1, quarto);
 		
 		System.out.println("Quarto criado");
 	}
-	//public void fazerReserva(int id) {
-	 // Quarto quarto = quartos.get(id);
-	  //  if (quarto!=null &&quarto.isDisponivel()) {
-	   //   quarto.reserva();
-	   //  System.out.println("Reserva do quarto " + id + " feita com sucesso.");
-	      //return true;
-	     // } else {
-	    //	  System.out.println("Nao foi possivel fazer a reserva do quarto " + id + ".");
-	        // return false; 
-	     //   }
-	   // }
+	
+	public void buscarQuartos() {
+		this.bdQuarto.buscarTodos(this, this.getId());
+	}
+	
+	public void editarQuarto(Usuario usuario, int idQuarto, double preco, String decricao, int qtdCamaCasal, int qtdCamaSolterio) {
+		boolean permissao = usuario.validarPermissao();
+		boolean status = this.validarDados(preco, decricao, qtdCamaCasal, qtdCamaSolterio);
 		
-	//public void liberarQuarto(int id) {
-		 //for (Quarto quarto : quartos.values()) {
-		  //   if (quartos.containsKey(id)) {
-		 //       quarto.libera();
-		    //  System.out.println("Quarto " + id + " liberado com sucesso.");
-		    //    break;
-		    //  }
-		 //   System.out.println("Nao foi possivel liberar o quarto " + id + ".");
-		  // }
-		//}
+		if(!permissao) {
+			System.out.println("Acesso Negado");
+			return;
+		}
 		
-	private boolean validarDados(double preco, String decricao, int qtdCama) {
+		if(!status) {
+			System.out.println("Preencha todos os campos");
+			return;
+		}
+		
+		this.getQuartos().get(idQuarto).editar(idQuarto, preco, decricao, qtdCamaCasal, qtdCamaSolterio, qtdCamaSolterio);		
+	}
+	
+	public boolean fazerReserva(int id) {
+	  Quarto quarto = quartos.get(id);
+	    if (quarto!=null &&quarto.isDisponivel()) {
+	      quarto.reserva();
+	     System.out.println("Reserva do quarto " + id + " feita com sucesso.");
+	      return true;
+	     } else {
+	   	  System.out.println("Nao foi possivel fazer a reserva do quarto " + id + ".");
+	         return false; 
+	        }
+	   }
+		
+	public void liberarQuarto(int id) {
+		 for (Quarto quarto : quartos.values()) {
+		     if (quartos.containsKey(id)) {
+		       quarto.libera();
+		      System.out.println("Quarto " + id + " liberado com sucesso.");
+		        break;
+		      }
+		   System.out.println("Nao foi possivel liberar o quarto " + id + ".");
+		  }
+		}
+		
+	private boolean validarDados(double preco, String decricao, int qtdCamaCasal, int qtdCamaSolterio) {
 		boolean status = true;
 		
 		if(decricao.isEmpty()) status = false;
 		if(preco < 0) status = false;
-		if(qtdCama <= 1) status = false;
+		if((qtdCamaCasal+qtdCamaSolterio) <= 1) status = false;
 		
 		return status;
 	}
@@ -107,7 +138,25 @@ public class Hotel {
 		this.pagamentoAnte = pagamentoAnte;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
-	
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	@Override
+	public String toString() {
+		return  id + "," + nome + "," + endereco + "," + descricao + "," + pagamentoAnte;
+	}
 	
 }

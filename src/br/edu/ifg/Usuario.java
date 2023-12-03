@@ -17,10 +17,12 @@ public class Usuario {
 	private String codigoReserva;
 	private String senha;
 	private ArquivoUsuario bd;
+	private ArquivoHotel bdHotel;
 	
 	public Usuario() {
 		super();
 		this.bd = new ArquivoUsuario("BancoUsuario.txt");
+		this.bdHotel = new ArquivoHotel("BancoHotel.txt");
 	}
 	
 	public void login(String email, String senha) {
@@ -97,9 +99,9 @@ public class Usuario {
 		this.setPermissao(permissaoUsuario);
 	}
 	
-	public Hotel cadastraHotel(String nome, String endereco, String descricao, boolean pagamentoAnte) {
+	public Hotel cadastraHotel(String nome, String endereco, String descricao, String cidade, boolean pagamentoAnte) {
 		boolean permissao = this.validarPermissao();
-		boolean status = this.validarDadoHotel(nome, endereco, descricao);
+		boolean status = this.validarDadoHotel(nome, endereco, descricao, cidade);
 		
 		if(!permissao) {
 			System.out.println("Acesso Negado");
@@ -111,17 +113,19 @@ public class Usuario {
 			return null;
 		}
 		
-		Hotel hotel = new Hotel(nome, endereco, descricao, pagamentoAnte);
+		Hotel hotel = new Hotel();
+		hotel.cadastrar(nome, endereco, descricao, cidade, pagamentoAnte);
 		System.out.println("Hotel criado");
 		return hotel;
 	}
 	
-	private boolean validarDadoHotel(String nome, String endereco, String descricao) {
+	private boolean validarDadoHotel(String nome, String endereco, String descricao, String cidade) {
 		boolean status = true;
 		
 		if(nome.isEmpty()) status = false;
 		if(descricao.isEmpty()) status = false;
 		if(endereco.isEmpty()) status = false;
+		if(cidade.isEmpty()) status = false;
 		
 		return status;
 	}
@@ -156,6 +160,10 @@ public class Usuario {
 			status = false;
 		}
 		return status;
+	}
+	
+	public void listarHotel() {
+		
 	}
 
 	public String getNome() {
