@@ -10,17 +10,36 @@ public class Reserva {
 	private Usuario usuario;
 	private Hotel hotel;
 	
-	public Reserva(int id, SimpleDateFormat dataInicio, SimpleDateFormat dataFim, double valorTotal, Usuario usuario,
-			Hotel hotel) {
+	public Reserva() {
 		super();
-		this.id = id;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
-		this.valorTotal = valorTotal;
-		this.usuario = usuario;
-		this.hotel = hotel;
 	}
-
+	public void CadastrarReserva(int id, SimpleDateFormat dataInicio, SimpleDateFormat dataFim, double valorTotal, Usuario usuario,
+			Hotel hotel) {
+		
+		this.setDataInicio(dataInicio);
+		this.setDataFim(dataFim);
+		this.setValorTotal(valorTotal);
+		this.setUsuario(usuario);
+		this.setHotel(hotel);
+	}
+	
+	public void EditarReserva(int id, SimpleDateFormat dataInicio, SimpleDateFormat dataFim, double valorTotal, Usuario usuario,
+			Hotel hotel) {
+		this.setReserva(id,dataInicio,dataFim, valorTotal, usuario, hotel);
+	
+	}
+	
+	public void setReserva(int id, SimpleDateFormat dataInicio, SimpleDateFormat dataFim, double valorTotal, Usuario usuario,
+			Hotel hotel) {
+		this.setId(id);
+		this.setDataInicio(dataInicio);
+		this.setDataFim(dataFim);
+		this.setValorTotal(valorTotal);
+		this.setUsuario(usuario);
+		this.setHotel(hotel);
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
