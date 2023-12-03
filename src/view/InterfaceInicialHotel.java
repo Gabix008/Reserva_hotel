@@ -55,11 +55,11 @@ public class InterfaceInicialHotel {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Cadastro de Quarto");
-		btnNewButton.setBounds(21, 143, 123, 33);
+		btnNewButton.setBounds(10, 143, 123, 33);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Informações de Cadastro");
-		btnNewButton_1.setBounds(154, 143, 152, 33);
+		btnNewButton_1.setBounds(143, 143, 163, 33);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Reservas");

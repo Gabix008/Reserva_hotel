@@ -16,6 +16,7 @@ public class InterfaceGerenciamentoDeCadastroHotel {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	private JTextField textField_5;
 
 	/**
 	 * Launch the application.
@@ -74,9 +75,9 @@ public class InterfaceGerenciamentoDeCadastroHotel {
 		textField_1.setBounds(122, 84, 225, 19);
 		frame.getContentPane().add(textField_1);
 		
-		JLabel lblNewLabel_3 = new JLabel("ENDEREÇO:");
+		JLabel lblNewLabel_3 = new JLabel("CIDADE:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(20, 114, 86, 13);
+		lblNewLabel_3.setBounds(20, 141, 86, 13);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		textField_2 = new JTextField();
@@ -86,28 +87,38 @@ public class InterfaceGerenciamentoDeCadastroHotel {
 		
 		JLabel lblNewLabel_4 = new JLabel("TELEFONE:");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_4.setBounds(20, 143, 79, 13);
+		lblNewLabel_4.setBounds(20, 164, 79, 13);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(122, 142, 225, 19);
+		textField_3.setBounds(122, 163, 225, 19);
 		frame.getContentPane().add(textField_3);
 		
 		JLabel lblNewLabel_5 = new JLabel("EMAIL:");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_5.setBounds(20, 172, 68, 13);
+		lblNewLabel_5.setBounds(20, 187, 68, 13);
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(122, 171, 225, 19);
+		textField_4.setBounds(122, 186, 225, 19);
 		frame.getContentPane().add(textField_4);
 		
 		JButton btnNewButton = new JButton("Editar Cadastro");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnNewButton.setBounds(206, 215, 110, 38);
 		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("ENDEREÇO:");
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_3_1.setBounds(20, 118, 86, 13);
+		frame.getContentPane().add(lblNewLabel_3_1);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(122, 140, 225, 19);
+		frame.getContentPane().add(textField_5);
 	}
 
 }
