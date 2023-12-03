@@ -14,8 +14,8 @@ import java.awt.event.ActionEvent;
 public class InterfaceLogin {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField email;
+	private JTextField senha;
 
 	/**
 	 * Launch the application.
@@ -60,20 +60,20 @@ public class InterfaceLogin {
 		lblNewLabel_1.setBounds(85, 53, 55, 39);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		textField = new JTextField();
-		textField.setBounds(85, 91, 225, 19);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		email = new JTextField();
+		email.setBounds(85, 91, 225, 19);
+		frame.getContentPane().add(email);
+		email.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Senha");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1_1.setBounds(85, 112, 55, 39);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(85, 150, 225, 19);
-		frame.getContentPane().add(textField_1);
+		senha = new JTextField();
+		senha.setColumns(10);
+		senha.setBounds(85, 150, 225, 19);
+		frame.getContentPane().add(senha);
 		
 		JLabel lblNewLabel_2 = new JLabel("Não possui uma conta? Cadastre-se aqui.");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -84,9 +84,36 @@ public class InterfaceLogin {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 			}
 		});
 		btnNewButton.setBounds(225, 179, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JTextField getEmail() {
+		return email;
+	}
+
+	public void setEmail(JTextField email) {
+		this.email = email;
+	}
+
+	public JTextField getSenha() {
+		return senha;
+	}
+
+	public void setSenha(JTextField senha) {
+		this.senha = senha;
+	}
+
+	
 }

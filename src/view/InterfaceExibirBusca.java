@@ -68,4 +68,30 @@ public class InterfaceExibirBusca {
 		table_1.setBounds(10, 33, 416, 220);
 		frame.getContentPane().add(table_1);
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
+	public JTable getTable_1() {
+		return table_1;
+	}
+
+	public void setTable_1(JTable table_1) {
+		this.table_1 = table_1;
+	}
+
+	
 }
