@@ -9,6 +9,8 @@ public class Hotel {
 	private Map<Integer, Quarto> quartos = new HashMap<>();
 	private String descricao;
 	private boolean pagamentoAnte;
+
+
 	
 	public Hotel(String nome, String endereco, String descricao, boolean pagamentoAnte) {
 		super();
@@ -16,8 +18,10 @@ public class Hotel {
 		this.endereco = endereco;
 		this.descricao = descricao;
 		this.pagamentoAnte = pagamentoAnte;
+	//	this.fazerReserva(0);
+		//this.liberarQuarto(1);
 	}
-	
+
 	public void cadastrarQuarto(Usuario usuario, double preco, String decricao, int qtdCama) {
 		boolean permissao = usuario.validarPermissao();
 		boolean status = this.validarDados(preco, decricao, qtdCama);
@@ -39,7 +43,29 @@ public class Hotel {
 		
 		System.out.println("Quarto criado");
 	}
-	
+	//public void fazerReserva(int id) {
+	 // Quarto quarto = quartos.get(id);
+	  //  if (quarto!=null &&quarto.isDisponivel()) {
+	   //   quarto.reserva();
+	   //  System.out.println("Reserva do quarto " + id + " feita com sucesso.");
+	      //return true;
+	     // } else {
+	    //	  System.out.println("Nao foi possivel fazer a reserva do quarto " + id + ".");
+	        // return false; 
+	     //   }
+	   // }
+		
+	//public void liberarQuarto(int id) {
+		 //for (Quarto quarto : quartos.values()) {
+		  //   if (quartos.containsKey(id)) {
+		 //       quarto.libera();
+		    //  System.out.println("Quarto " + id + " liberado com sucesso.");
+		    //    break;
+		    //  }
+		 //   System.out.println("Nao foi possivel liberar o quarto " + id + ".");
+		  // }
+		//}
+		
 	private boolean validarDados(double preco, String decricao, int qtdCama) {
 		boolean status = true;
 		
@@ -80,6 +106,8 @@ public class Hotel {
 	public void setPagamentoAnte(boolean pagamentoAnte) {
 		this.pagamentoAnte = pagamentoAnte;
 	}
+
+	
 	
 	
 }

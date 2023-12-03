@@ -5,6 +5,7 @@ public class Quarto {
 	private String decricao;
 	private int qtdCama;
 	private int id;
+	private boolean disponivel;
 	
 	public Quarto(double preco, String decricao, int qtdCama, int id) {
 		super();
@@ -12,8 +13,21 @@ public class Quarto {
 		this.decricao = decricao;
 		this.qtdCama = qtdCama;
 		this.id = id;
+		}
+
+	public boolean isDisponivel() {
+		// TODO Auto-generated method stub
+		return disponivel;
 	}
 
+	public void reserva() {
+        this.disponivel = false;
+    }
+
+	public void libera() {
+		this.disponivel = true;
+	}
+	
 	public double getPreco() {
 		return preco;
 	}

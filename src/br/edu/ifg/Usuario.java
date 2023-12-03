@@ -1,9 +1,11 @@
 package br.edu.ifg;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 public class Usuario {
+	private int id;
 	private String nome;
 	private String cpf;
 	private SimpleDateFormat dataNasc;
@@ -14,14 +16,50 @@ public class Usuario {
 	private Permissao permissao;
 	private String codigoReserva;
 	private String senha;
+	private ArquivoUsuario bd;
 	
-	public Usuario(String nome, String cpf, SimpleDateFormat dataNasc, String endereco, String telefone, String email,
-			Sexo sexo, Permissao permissao, String codigoReserva, String senha) {
+	public Usuario() {
 		super();
-		this.cadastrar(nome, cpf, cpf, endereco, telefone, email, email, senha, codigoReserva, senha);
+		this.bd = new ArquivoUsuario("BancoUsuario.txt");
+	}
+	
+	public void login(String email, String senha) {
+		if(email.isEmpty()) {
+			System.out.println("Preencha todos os campos");
+			return;
+		}
+		
+		if(senha.isEmpty()) {
+			System.out.println("Preencha todos os campos");
+			return;
+		}
+		
+		this.bd.realizaLoginUsuario(this, email, senha);
+		System.out.println("login feito");
 	}
 	
 	public void cadastrar(String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
+			String sexo, String permissao, String codigoReserva, String senha) {
+		int id = this.bd.novoID();
+		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, codigoReserva, senha);
+		this.bd.cadastrar(this.toString());		
+		System.out.println("User criado com sucesso");
+	}
+	
+	public void editarUsuario(int id, String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
+			String sexo, String permissao, String codigoReserva, String senha) {
+		
+		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, codigoReserva, senha);
+		this.bd.editar(id,this.toString());
+		
+		System.out.println("User editado com sucesso");
+	}
+	
+	public void excluir(int id) {
+		this.bd.excluir(id);
+	}
+	
+	public void adicionarDados(int id, String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
 			String sexo, String permissao, String codigoReserva, String senha) {
 		boolean status = this.validarDados(nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, codigoReserva, senha);
 		Sexo sexoUsuario;
@@ -46,7 +84,7 @@ public class Usuario {
 		
 		SimpleDateFormat data = new SimpleDateFormat(dataNasc);
 		
-		
+		this.setId(id);
 		this.setCodigoReserva(codigoReserva);
 		this.setCpf(cpf);
 		this.setDataNasc(data);
@@ -57,8 +95,6 @@ public class Usuario {
 		this.setSexo(sexoUsuario);
 		this.setTelefone(telefone);
 		this.setPermissao(permissaoUsuario);
-		
-		System.out.println("User criado com sucesso");
 	}
 	
 	public Hotel cadastraHotel(String nome, String endereco, String descricao, boolean pagamentoAnte) {
@@ -201,7 +237,21 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		Date dataFormatada = new Date();
+		return id+","+ nome + ",:" + cpf + "," + dataNasc.format(dataFormatada) + "," + endereco
+				+"," + telefone + "," + email + "," + sexo + "," + permissao
+				+ "," + codigoReserva + "," + senha;
+	}
 	
 }
