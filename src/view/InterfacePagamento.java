@@ -58,7 +58,7 @@ public class InterfacePagamento {
 		
 		JLabel lblNewLabel = new JLabel("Pagamento");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(10, 10, 81, 20);
+		lblNewLabel.setBounds(180, 11, 81, 20);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNome = new JLabel("Nome");
@@ -78,7 +78,7 @@ public class InterfacePagamento {
 		
 		JLabel lblValor = new JLabel("Valor Total");
 		lblValor.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblValor.setBounds(10, 191, 81, 20);
+		lblValor.setBounds(10, 179, 81, 20);
 		frame.getContentPane().add(lblValor);
 		
 		JButton btnNewButton = new JButton("Pagar");
@@ -97,7 +97,7 @@ public class InterfacePagamento {
 		
 		JLabel lblCvv = new JLabel("CVV");
 		lblCvv.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCvv.setBounds(276, 142, 29, 20);
+		lblCvv.setBounds(276, 142, 38, 20);
 		frame.getContentPane().add(lblCvv);
 		
 		JLabel lblParcelas = new JLabel("Parcelas");
@@ -122,7 +122,7 @@ public class InterfacePagamento {
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(101, 194, 108, 19);
+		textField_3.setBounds(101, 181, 108, 19);
 		frame.getContentPane().add(textField_3);
 		
 		textField_4 = new JTextField();
@@ -147,17 +147,17 @@ public class InterfacePagamento {
 		
 		JLabel lblNewLabel_1 = new JLabel("Ou");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel_1.setBounds(342, 224, 38, 29);
+		lblNewLabel_1.setBounds(210, 225, 38, 29);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblPix = new JLabel("Pix");
 		lblPix.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPix.setBounds(276, 260, 29, 20);
+		lblPix.setBounds(154, 258, 29, 20);
 		frame.getContentPane().add(lblPix);
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
-		textField_7.setBounds(315, 259, 108, 19);
+		textField_7.setBounds(197, 260, 108, 19);
 		frame.getContentPane().add(textField_7);
 	}
 }
