@@ -17,74 +17,77 @@ public class Usuario {
 	private String senha;
 	private ArquivoUsuario bd;
 	private ArquivoHotel bdHotel;
-	
+
 	public Usuario() {
 		super();
 		this.bd = new ArquivoUsuario("BancoUsuario.txt");
 		this.bdHotel = new ArquivoHotel("BancoHotel.txt");
 	}
-	
+
 	public void login(String email, String senha) {
-		if(email.isEmpty()) {
+		if (email.isEmpty()) {
 			System.out.println("Preencha todos os campos");
 			return;
 		}
-		
-		if(senha.isEmpty()) {
+
+		if (senha.isEmpty()) {
 			System.out.println("Preencha todos os campos");
 			return;
 		}
-		
+
 		this.bd.realizaLoginUsuario(this, email, senha);
 		System.out.println("login feito");
 	}
-	
+
 	public void cadastrar(String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
 			String sexo, String permissao, String senha) {
 		int id = this.bd.novoID();
-		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
-		this.bd.cadastrar(this.toString());		
+		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, codigoReserva, senha);
+		this.bd.cadastrar(this.toString());
 		System.out.println("User criado com sucesso");
 	}
-	
-	public void editarUsuario(int id, String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
-			String sexo, String permissao, String senha) {
-		
-		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
-		this.bd.editar(id,this.toString());
-		
+
+	public void editarUsuario(int id, String nome, String cpf, String dataNasc, String endereco, String telefone,
+			String email,
+			String sexo, String permissao, String codigoReserva, String senha) {
+
+		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, codigoReserva, senha);
+		this.bd.editar(id, this.toString());
+
 		System.out.println("User editado com sucesso");
 	}
-	
+
 	public void excluir(int id) {
 		this.bd.excluir(id);
 	}
-	
-	public void adicionarDados(int id, String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
-			String sexo, String permissao, String senha) {
-		boolean status = this.validarDados(nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
+
+	public void adicionarDados(int id, String nome, String cpf, String dataNasc, String endereco, String telefone,
+			String email,
+			String sexo, String permissao, String codigoReserva, String senha) {
+		boolean status = this.validarDados(nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao,
+				codigoReserva, senha);
 		Sexo sexoUsuario;
 		Permissao permissaoUsuario;
-		
-		if(!status) {
+
+		if (!status) {
 			System.out.println("Preencha todos os campos");
 			return;
 		}
-		
-		if(sexo.equals("masculino")) {
+
+		if (sexo.equals("masculino")) {
 			sexoUsuario = Sexo.MASCULINO;
-		}else {
+		} else {
 			sexoUsuario = Sexo.FEMININO;
 		}
-		
-		if(permissao.equals("cliente")) {
+
+		if (permissao.equals("cliente")) {
 			permissaoUsuario = Permissao.CLIENTE;
-		}else {
+		} else {
 			permissaoUsuario = Permissao.PROPRIETARIO;
-		}		
-		
+		}
+
 		SimpleDateFormat data = new SimpleDateFormat(dataNasc);
-		
+
 		this.setId(id);
 		this.setCpf(cpf);
 		this.setDataNasc(data);
@@ -96,71 +99,87 @@ public class Usuario {
 		this.setTelefone(telefone);
 		this.setPermissao(permissaoUsuario);
 	}
-	
+
 	public Hotel cadastraHotel(String nome, String endereco, String descricao, String cidade, boolean pagamentoAnte) {
 		boolean permissao = this.validarPermissao();
 		boolean status = this.validarDadoHotel(nome, endereco, descricao, cidade);
-		
-		if(!permissao) {
+
+		if (!permissao) {
 			System.out.println("Acesso Negado");
 			return null;
 		}
-		
-		if(!status) {
+
+		if (!status) {
 			System.out.println("Preencha todos os campos");
 			return null;
 		}
-		
+
 		Hotel hotel = new Hotel();
-		hotel.cadastrar(nome, endereco, descricao, cidade, pagamentoAnte);
+		hotel.cadastrar(nome, endereco, descricao, cidade, pagamentoAnte, this.getId());
 		System.out.println("Hotel criado");
 		return hotel;
 	}
-	
+
 	private boolean validarDadoHotel(String nome, String endereco, String descricao, String cidade) {
 		boolean status = true;
-		
-		if(nome.isEmpty()) status = false;
-		if(descricao.isEmpty()) status = false;
-		if(endereco.isEmpty()) status = false;
-		if(cidade.isEmpty()) status = false;
-		
+
+		if (nome.isEmpty())
+			status = false;
+		if (descricao.isEmpty())
+			status = false;
+		if (endereco.isEmpty())
+			status = false;
+		if (cidade.isEmpty())
+			status = false;
+
 		return status;
 	}
-	
-	private boolean validarDados(String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
-			String sexo, String permissao, String senha) {
+
+	private boolean validarDados(String nome, String cpf, String dataNasc, String endereco, String telefone,
+			String email,
+			String sexo, String permissao, String codigoReserva, String senha) {
 		boolean status = true;
-		
-		if(nome.isEmpty()) status = false;
-		if(cpf.isEmpty()) status = false;
-		if(dataNasc.isEmpty()) status = false;
-		if(endereco.isEmpty()) status = false;
-		if(telefone.isEmpty()) status = false;
-		if(email.isEmpty()) status = false;
-		if(sexo.isEmpty()) status = false;
-		if(permissao.isEmpty()) status = false;
-		if(senha.isEmpty()) status = false;
-		
+
+		if (nome.isEmpty())
+			status = false;
+		if (cpf.isEmpty())
+			status = false;
+		if (dataNasc.isEmpty())
+			status = false;
+		if (endereco.isEmpty())
+			status = false;
+		if (telefone.isEmpty())
+			status = false;
+		if (email.isEmpty())
+			status = false;
+		if (sexo.isEmpty())
+			status = false;
+		if (permissao.isEmpty())
+			status = false;
+		if (codigoReserva.isEmpty())
+			status = false;
+		if (senha.isEmpty())
+			status = false;
+
 		return status;
 	}
-	
+
 	public boolean validarPermissao() {
 		boolean status = false;
-		
+
 		switch (this.permissao) {
-		case PROPRIETARIO: {
-			status = true;
-			break;
-		}
-		default:
-			status = false;
+			case PROPRIETARIO: {
+				status = true;
+				break;
+			}
+			default:
+				status = false;
 		}
 		return status;
 	}
-	
+
 	public void listarHotel() {
-		
+
 	}
 
 	public String getNome() {
@@ -246,8 +265,9 @@ public class Usuario {
 	@Override
 	public String toString() {
 		Date dataFormatada = new Date();
-		return id+","+ nome + ",:" + cpf + "," + dataNasc.format(dataFormatada) + "," + endereco
-				+"," + telefone + "," + email + "," + sexo + "," + permissao + "," + senha;
+		return id + "," + nome + ",:" + cpf + "," + dataNasc.format(dataFormatada) + "," + endereco
+				+ "," + telefone + "," + email + "," + sexo + "," + permissao
+				+ "," + codigoReserva + "," + senha;
 	}
-	
+
 }

@@ -9,12 +9,14 @@ public class Quarto {
 	private int idHotel;
 	private boolean disponivel;
 	private ArquivoQuarto bd;
-	
+	private ArquivoReserva bdReserva;
+
 	public Quarto() {
 		super();
-		this.bd = new ArquivoQuarto("BancoQuarto.txt");		
+		this.bd = new ArquivoQuarto("BancoQuarto.txt");
+		this.bdReserva = new ArquivoReserva("BancoReserva.txt");
 	}
-	
+
 	public void cadastrar(double preco, String decricao, int qtdCamaCasal, int qtdCamaSolteiro, int idHotel) {
 		this.setDecricao(decricao);
 		this.setId(this.bd.novoID());
@@ -25,13 +27,18 @@ public class Quarto {
 		this.setDisponivel(true);
 		this.bd.cadastrar(this.toString());
 	}
-	
+
 	public void editar(int id, double preco, String decricao, int qtdCamaCasal, int qtdCamaSolteiro, int idHotel) {
 		this.setQuarto(id, preco, decricao, disponivel, qtdCamaCasal, qtdCamaSolteiro, idHotel);
 		this.bd.editar(id, this.toString());
 	}
-	
-	public void setQuarto(int id, double preco, String decricao, boolean disponivel, int qtdCamaCasal, int qtdCamaSolteiro, int idHotel) {
+
+	public void verificarDisponibilidade(String dataIncio, String dataFim, Hotel hotel) {
+
+	}
+
+	public void setQuarto(int id, double preco, String decricao, boolean disponivel, int qtdCamaCasal,
+			int qtdCamaSolteiro, int idHotel) {
 		this.setDecricao(decricao);
 		this.setId(id);
 		this.setPreco(preco);
@@ -40,24 +47,23 @@ public class Quarto {
 		this.setQtdCamaSolteiro(qtdCamaSolteiro);
 		this.setIdHotel(idHotel);
 	}
-	
+
 	public void buscar(int id) {
 		this.bd.buscarQuarto(this, id);
 	}
 
 	public boolean isDisponivel() {
-		// TODO Auto-generated method stub
 		return disponivel;
 	}
 
 	public void reserva() {
-        this.setDisponivel(false);
-    }
+		this.setDisponivel(false);
+	}
 
 	public void libera() {
 		this.setDisponivel(true);
 	}
-	
+
 	public double getPreco() {
 		return preco;
 	}
@@ -93,8 +99,6 @@ public class Quarto {
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
 	}
-	
-	
 
 	public int getQtdCamaCasal() {
 		return qtdCamaCasal;
@@ -114,8 +118,8 @@ public class Quarto {
 
 	@Override
 	public String toString() {
-		return id+"," + decricao +"," + qtdCamaCasal+","+qtdCamaSolteiro+","+ disponivel +"," + preco +"," + idHotel;
+		return id + "," + decricao + "," + qtdCamaCasal + "," + qtdCamaSolteiro + "," + disponivel + "," + preco + ","
+				+ idHotel;
 	}
-	
-	
+
 }
