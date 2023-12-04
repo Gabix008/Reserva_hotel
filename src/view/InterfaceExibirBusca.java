@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.JButton;
 
 public class InterfaceExibirBusca {
 
@@ -58,15 +59,19 @@ public class InterfaceExibirBusca {
 		table_1.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null},
+				{null, null, null},
 			},
 			new String[] {
-				"Nome", "Local", "Pre\u00E7o", "Saiba mais"
+				"Nome", "Local", "Pre\u00E7o"
 			}
 		));
 		table_1.setToolTipText("");
 		table_1.setBounds(10, 33, 416, 220);
 		frame.getContentPane().add(table_1);
+		
+		JButton btnNewButton = new JButton("Reservar");
+		btnNewButton.setBounds(341, 6, 85, 21);
+		frame.getContentPane().add(btnNewButton);
 	}
 
 	public JFrame getFrame() {
