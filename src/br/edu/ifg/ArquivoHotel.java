@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -97,7 +98,7 @@ public class ArquivoHotel {
 		return hoteis;
 	}
 
-	public Map<Integer, Hotel> buscarHoteis(String cidade) {
+	public Map<Integer, Hotel> buscarTodosHoteis(String cidade) {
 		Map<Integer, Hotel> hoteis = new HashMap<>();
 		try {
 			String caminho = System.getProperty("user.dir");
@@ -120,12 +121,30 @@ public class ArquivoHotel {
 					Hotel hotel = new Hotel();
 					hotel.setHotel(id, nome, endereco, descricao, cidade, pagamentoAnte,
 							idUsuario);
+					hotel.buscarQuartos();
 					hoteis.put(id, hotel);
 				}
 			}
 			bufferedReader.close();
 		} catch (IOException e) {
 			System.out.println("Ocorreu um erro ao ler o arquivo: " + e.getMessage());
+		}
+		return hoteis;
+	}
+
+	public Map<Integer, Hotel> buscarHoteis(String cidade, SimpleDateFormat dataInicio, SimpleDateFormat dataFim)
+			throws ParseException {
+		Map<Integer, Hotel> hoteis = this.buscarTodosHoteis(cidade);
+		Map<Integer, Quarto> quartos = new HashMap<Integer, Quarto>();
+		for (Hotel hotel : hoteis.values()) {
+			for (Quarto quarto : hotel.getQuartos().values()) {
+				boolean status = quarto.verificarDisponibilidade(dataInicio, dataFim, hotel);
+
+				if (status) {
+					quartos.put(quarto.getId(), quarto);
+				}
+			}
+			hotel.setQuartos(quartos);
 		}
 		return hoteis;
 	}

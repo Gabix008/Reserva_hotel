@@ -1,5 +1,8 @@
 package br.edu.ifg;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class Quarto {
 	private double preco;
 	private String decricao;
@@ -33,8 +36,10 @@ public class Quarto {
 		this.bd.editar(id, this.toString());
 	}
 
-	public void verificarDisponibilidade(String dataIncio, String dataFim, Hotel hotel) {
-
+	public boolean verificarDisponibilidade(SimpleDateFormat dataIncio, SimpleDateFormat dataFim, Hotel hotel)
+			throws ParseException {
+		boolean status = this.bdReserva.verificarDisponibilidade(dataIncio, dataFim, hotel, this);
+		return status;
 	}
 
 	public void setQuarto(int id, double preco, String decricao, boolean disponivel, int qtdCamaCasal,

@@ -53,11 +53,18 @@ public class Main {
 		Usuario user = new Usuario();
 		user.login("emailOscar.com", "abc");
 		Hotel teste = new Hotel();
-		teste.buscarHotel(5);
-		Quarto quarto = new Quarto();
-		quarto.buscar(37);
-		Reserva reserva = new Reserva();
-		reserva.CadastrarReserva("2023/12/04", "2023/12/07", 15000, user, teste, quarto);
+		Map<Integer, Hotel> hoteis = teste.buscarHoteis("ordalia", "2023/12/04", "2023/12/07");
+		for (Hotel hotel : hoteis.values()) {
+			for (Quarto quarto : hotel.getQuartos().values()) {
+				System.out.println(quarto.toString());
+			}
+		}
+		// teste.buscarHotel(5);
+		// Quarto quarto = new Quarto();
+		// quarto.buscar(37);
+		// Reserva reserva = new Reserva();
+		// reserva.CadastrarReserva("2023/12/04", "2023/12/07", 15000, user, teste,
+		// quarto);
 		// System.out.println(teste.toString());
 		// teste.editar(user, 5, "pedroHotel", "teste", "teste descricao", "ordalia",
 		// false);

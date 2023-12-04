@@ -112,8 +112,7 @@ public class ArquivoUsuario {
 					user.setEmail(usuario[6]);
 					user.setSexo(usuario[7].equals("MASCULINO") ? Sexo.MASCULINO : Sexo.FEMININO);
 					user.setPermissao(usuario[8].equals("CLIENTE") ? Permissao.CLIENTE : Permissao.PROPRIETARIO);
-					user.setCodigoReserva(usuario[9]);
-					user.setSenha(usuario[10]);
+					user.setSenha(usuario[9]);
 				}
 
 			}
