@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class InterfaceDadosCliente {
 
@@ -121,6 +122,7 @@ public class InterfaceDadosCliente {
 		frame.getContentPane().add(textField_6);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Masculino", "Feminino", "Não Binário"}));
 		comboBox.setBounds(148, 256, 147, 17);
 		frame.getContentPane().add(comboBox);
 		

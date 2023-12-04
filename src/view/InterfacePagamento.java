@@ -11,18 +11,17 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
+import javax.swing.JCheckBox;
 
 public class InterfacePagamento {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -52,7 +51,7 @@ public class InterfacePagamento {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 498, 356);
+		frame.setBounds(100, 100, 506, 378);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -61,24 +60,9 @@ public class InterfacePagamento {
 		lblNewLabel.setBounds(10, 10, 81, 20);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNome.setBounds(10, 55, 81, 20);
-		frame.getContentPane().add(lblNome);
-		
-		JLabel lblHotel = new JLabel("Hotel");
-		lblHotel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblHotel.setBounds(10, 98, 81, 20);
-		frame.getContentPane().add(lblHotel);
-		
-		JLabel lblQuarto = new JLabel("Quarto");
-		lblQuarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblQuarto.setBounds(10, 142, 81, 20);
-		frame.getContentPane().add(lblQuarto);
-		
 		JLabel lblValor = new JLabel("Valor Total");
 		lblValor.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblValor.setBounds(10, 191, 81, 20);
+		lblValor.setBounds(14, 192, 81, 20);
 		frame.getContentPane().add(lblValor);
 		
 		JButton btnNewButton = new JButton("Pagar");
@@ -87,77 +71,77 @@ public class InterfacePagamento {
 		
 		JLabel lblNmeroCarto = new JLabel("Número Cartão");
 		lblNmeroCarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNmeroCarto.setBounds(197, 55, 108, 20);
+		lblNmeroCarto.setBounds(14, 217, 108, 20);
 		frame.getContentPane().add(lblNmeroCarto);
 		
 		JLabel lblDataValidade = new JLabel("Data Validade");
 		lblDataValidade.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblDataValidade.setBounds(204, 98, 101, 20);
+		lblDataValidade.setBounds(14, 247, 101, 20);
 		frame.getContentPane().add(lblDataValidade);
 		
 		JLabel lblCvv = new JLabel("CVV");
 		lblCvv.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCvv.setBounds(276, 142, 29, 20);
+		lblCvv.setBounds(14, 277, 29, 20);
 		frame.getContentPane().add(lblCvv);
 		
 		JLabel lblParcelas = new JLabel("Parcelas");
 		lblParcelas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblParcelas.setBounds(246, 191, 59, 20);
+		lblParcelas.setBounds(14, 308, 59, 20);
 		frame.getContentPane().add(lblParcelas);
-		
-		textField = new JTextField();
-		textField.setBounds(68, 58, 108, 19);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(68, 101, 108, 19);
-		frame.getContentPane().add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(68, 145, 108, 19);
-		frame.getContentPane().add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(101, 194, 108, 19);
+		textField_3.setBounds(142, 195, 108, 19);
 		frame.getContentPane().add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(315, 58, 108, 19);
+		textField_4.setBounds(142, 221, 108, 19);
 		frame.getContentPane().add(textField_4);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(315, 101, 108, 19);
+		textField_5.setBounds(142, 250, 108, 19);
 		frame.getContentPane().add(textField_5);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
-		textField_6.setBounds(315, 143, 108, 19);
+		textField_6.setBounds(142, 280, 108, 19);
 		frame.getContentPane().add(textField_6);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"A vista", "1x", "2x", "3x", "4x"}));
-		comboBox.setBounds(315, 193, 108, 21);
+		comboBox.setBounds(142, 310, 108, 21);
 		frame.getContentPane().add(comboBox);
 		
-		JLabel lblNewLabel_1 = new JLabel("Ou");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel_1.setBounds(342, 224, 38, 29);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblPix = new JLabel("Pix");
+		JLabel lblPix = new JLabel("Código");
 		lblPix.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPix.setBounds(276, 260, 29, 20);
+		lblPix.setBounds(10, 82, 81, 20);
 		frame.getContentPane().add(lblPix);
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
-		textField_7.setBounds(315, 259, 108, 19);
+		textField_7.setBounds(142, 85, 108, 19);
 		frame.getContentPane().add(textField_7);
+		
+		JCheckBox chckbxCarto = new JCheckBox("Cartão");
+		chckbxCarto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		chckbxCarto.setBounds(10, 152, 81, 21);
+		frame.getContentPane().add(chckbxCarto);
+		
+		JCheckBox chckbxPix = new JCheckBox("Pix");
+		chckbxPix.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		chckbxPix.setBounds(10, 55, 81, 21);
+		frame.getContentPane().add(chckbxPix);
+		
+		JLabel lblValor_1 = new JLabel("Valor Total");
+		lblValor_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblValor_1.setBounds(10, 112, 81, 20);
+		frame.getContentPane().add(lblValor_1);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(142, 115, 108, 19);
+		frame.getContentPane().add(textField);
 	}
 }
