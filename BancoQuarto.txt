@@ -20,3 +20,18 @@
 21,Teste com Hotel Editado,2,200,true,100.0,200
 22,Teste com Hotel 1,5,20,true,500.0,9
 23,Teste com Hotel 2,50,2,true,500.0,9
+24,Teste com Hotel,5,2,true,500.0,1
+25,Teste com Hotel 1,5,20,true,500.0,1
+26,Teste com Hotel 2,50,2,true,500.0,1
+27,Teste com Hotel,5,2,true,500.0,2
+28,Teste com Hotel 1,5,20,true,500.0,2
+29,Teste com Hotel 2,50,2,true,500.0,2
+30,Teste com Hotel,5,2,true,500.0,3
+31,Teste com Hotel 1,5,20,true,500.0,3
+32,Teste com Hotel 2,50,2,true,500.0,3
+33,Teste com Hotel,5,2,true,500.0,4
+34,Teste com Hotel 1,5,20,true,500.0,4
+35,Teste com Hotel 2,50,2,true,500.0,4
+36,Teste com Hotel,5,2,true,500.0,5
+37,Teste com Hotel 1,5,20,true,500.0,5
+38,Teste com Hotel 2,50,2,true,500.0,5

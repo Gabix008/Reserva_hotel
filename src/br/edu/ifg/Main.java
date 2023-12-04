@@ -3,13 +3,15 @@ package br.edu.ifg;
 import view.InterfaceExibirBusca;
 import view.InterfaceLogin;
 import java.awt.EventQueue;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Map;
 
 import view.InterfaceLogin;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		// EventQueue.invokeLater(new Runnable() {
 		// public void run() {
 		// try {
@@ -20,10 +22,10 @@ public class Main {
 		// }
 		// }
 		// });
-		//  Quarto teste = new Quarto();
+		// Quarto teste = new Quarto();
 		// //teste.cadastrar(500, "Teste", 5, 10,1);
 		// teste.buscar(2);
-		//  System.out.println(teste.toString());
+		// System.out.println(teste.toString());
 
 		// Usuario usuario = new Usuario();
 		// usuario.cadastrar("Gabrielly", "45454545", "2002/04/25", "jshadihs",
@@ -51,13 +53,28 @@ public class Main {
 		Usuario user = new Usuario();
 		user.login("emailOscar.com", "abc");
 		Hotel teste = new Hotel();
-		teste.cadastrar("TesteHotel", "Teste", "TesteGErakbs", false);
-		teste.cadastrarQuarto(user, 500, "Teste com Hotel", 5, 2);
-		teste.cadastrarQuarto(user, 500, "Teste com Hotel 1", 5, 20);
-		teste.cadastrarQuarto(user, 500, "Teste com Hotel 2", 50, 2);
-		teste.buscarQuartos();
-		teste.editarQuarto(user, 21, 100, "Teste com Hotel Editado", 2, 200);
-		
+		teste.buscarHotel(5);
+		Quarto quarto = new Quarto();
+		quarto.buscar(37);
+		Reserva reserva = new Reserva();
+		reserva.CadastrarReserva("2023/12/04", "2023/12/07", 15000, user, teste, quarto);
+		// System.out.println(teste.toString());
+		// teste.editar(user, 5, "pedroHotel", "teste", "teste descricao", "ordalia",
+		// false);
+		// System.out.println(teste.toString());
+		// teste.excluir(4, user);
+		// Map<Integer, Hotel> hoteis = teste.buscarHoteis("inhumas");
+		// for (Hotel hotel : hoteis.values()) {
+		// System.out.println(hotel.toString());
+		// }
+		// teste.cadastrar("TesteHotel", "Teste", "TesteGErakbs", "oradalia", false,
+		// user.getId());
+		// teste.cadastrarQuarto(user, 500, "Teste com Hotel", 5, 2);
+		// teste.cadastrarQuarto(user, 500, "Teste com Hotel 1", 5, 20);
+		// teste.cadastrarQuarto(user, 500, "Teste com Hotel 2", 50, 2);
+		// teste.buscarQuartos();
+		// teste.editarQuarto(user, 21, 100, "Teste com Hotel Editado", 2, 200);
+
 	}
 
 }
