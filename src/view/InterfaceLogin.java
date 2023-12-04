@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import br.edu.ifg.Usuario;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -79,7 +82,8 @@ public class InterfaceLogin {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				Usuario usuario = new Usuario();
+				usuario.login(email.getText(), senha.getText());
 			}
 		});
 		btnNewButton.setBounds(225, 179, 85, 21);

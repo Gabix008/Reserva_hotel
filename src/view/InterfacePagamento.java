@@ -9,9 +9,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
 
 public class InterfacePagamento {
 
@@ -81,7 +83,7 @@ public class InterfacePagamento {
 		
 		JLabel lblCvv = new JLabel("CVV");
 		lblCvv.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCvv.setBounds(14, 277, 29, 20);
+		lblCvv.setBounds(14, 277, 59, 20);
 		frame.getContentPane().add(lblCvv);
 		
 		JLabel lblParcelas = new JLabel("Parcelas");
@@ -124,16 +126,6 @@ public class InterfacePagamento {
 		textField_7.setBounds(142, 85, 108, 19);
 		frame.getContentPane().add(textField_7);
 		
-		JCheckBox chckbxCarto = new JCheckBox("Cartão");
-		chckbxCarto.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		chckbxCarto.setBounds(10, 152, 81, 21);
-		frame.getContentPane().add(chckbxCarto);
-		
-		JCheckBox chckbxPix = new JCheckBox("Pix");
-		chckbxPix.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		chckbxPix.setBounds(10, 55, 81, 21);
-		frame.getContentPane().add(chckbxPix);
-		
 		JLabel lblValor_1 = new JLabel("Valor Total");
 		lblValor_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblValor_1.setBounds(10, 112, 81, 20);
@@ -143,5 +135,26 @@ public class InterfacePagamento {
 		textField.setColumns(10);
 		textField.setBounds(142, 115, 108, 19);
 		frame.getContentPane().add(textField);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Pix");
+		rdbtnNewRadioButton.setBounds(14, 41, 109, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton);
+			
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Cartão de credito");
+		rdbtnNewRadioButton_1.setBounds(14, 160, 109, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		
+		ButtonGroup grupo = new ButtonGroup();
+		grupo.add(rdbtnNewRadioButton);
+		grupo.add(rdbtnNewRadioButton_1);
+	
+		
+		JButton btnGerarCdigo = new JButton("Gerar código");
+		btnGerarCdigo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnGerarCdigo.setBounds(279, 82, 108, 35);
+		frame.getContentPane().add(btnGerarCdigo);
 	}
 }

@@ -51,7 +51,7 @@ public class Main {
 		Usuario user = new Usuario();
 		user.login("emailOscar.com", "abc");
 		Hotel teste = new Hotel();
-		teste.cadastrar("TesteHotel", "Teste", "TesteGErakbs", false);
+		teste.cadastrar("TesteHotel", "Teste", false);
 		teste.cadastrarQuarto(user, 500, "Teste com Hotel", 5, 2);
 		teste.cadastrarQuarto(user, 500, "Teste com Hotel 1", 5, 20);
 		teste.cadastrarQuarto(user, 500, "Teste com Hotel 2", 50, 2);

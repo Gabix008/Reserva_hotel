@@ -1,27 +1,31 @@
 package view;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import br.edu.ifg.Sexo;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+import br.edu.ifg.Usuario;
 
 public class InterfaceCadastroCliente {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField nome;
+	private JTextField dataNasc;
+	private JTextField cpf;
+	private JTextField email;
+	private JTextField senha;
+	private JTextField endereco;
+	private JTextField telefone;
 
 	/**
 	 * Launch the application.
@@ -57,7 +61,7 @@ public class InterfaceCadastroCliente {
 		
 		JLabel lblNewLabel = new JLabel("Cadastro");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel.setBounds(168, 10, 94, 29);
+		lblNewLabel.setBounds(194, 11, 94, 29);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel label = new JLabel("New label");
@@ -68,8 +72,8 @@ public class InterfaceCadastroCliente {
 		lblNewLabel_1.setBounds(90, 78, 45, 13);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("CPF");
-		lblNewLabel_1_1.setBounds(90, 133, 45, 13);
+		JLabel lblNewLabel_1_1 = new JLabel(" CPF ou CNPJ");
+		lblNewLabel_1_1.setBounds(90, 133, 79, 13);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("E-mail");
@@ -92,53 +96,82 @@ public class InterfaceCadastroCliente {
 		lblNewLabel_1_1_1_1_1_1.setBounds(90, 225, 60, 13);
 		frame.getContentPane().add(lblNewLabel_1_1_1_1_1_1);
 		
-		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("Sexo");
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(90, 248, 45, 13);
+		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("Cadastrar como ");
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(90, 284, 79, 13);
 		frame.getContentPane().add(lblNewLabel_1_1_1_1_1_1_1);
 		
-		textField = new JTextField();
-		textField.setBounds(194, 75, 147, 19);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		nome = new JTextField();
+		nome.setBounds(194, 75, 147, 19);
+		frame.getContentPane().add(nome);
+		nome.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(194, 104, 147, 19);
-		frame.getContentPane().add(textField_1);
+		dataNasc = new JTextField();
+		dataNasc.setColumns(10);
+		dataNasc.setBounds(194, 104, 147, 19);
+		frame.getContentPane().add(dataNasc);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(194, 130, 147, 19);
-		frame.getContentPane().add(textField_2);
+		cpf = new JTextField();
+		cpf.setColumns(10);
+		cpf.setBounds(194, 130, 147, 19);
+		frame.getContentPane().add(cpf);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(194, 153, 147, 19);
-		frame.getContentPane().add(textField_3);
+		email = new JTextField();
+		email.setColumns(10);
+		email.setBounds(194, 153, 147, 19);
+		frame.getContentPane().add(email);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(194, 176, 147, 19);
-		frame.getContentPane().add(textField_4);
+		senha = new JTextField();
+		senha.setColumns(10);
+		senha.setBounds(194, 176, 147, 19);
+		frame.getContentPane().add(senha);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(194, 199, 147, 19);
-		frame.getContentPane().add(textField_5);
+		endereco = new JTextField();
+		endereco.setColumns(10);
+		endereco.setBounds(194, 199, 147, 19);
+		frame.getContentPane().add(endereco);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(194, 222, 147, 19);
-		frame.getContentPane().add(textField_6);
+		telefone = new JTextField();
+		telefone.setColumns(10);
+		telefone.setBounds(194, 222, 147, 19);
+		frame.getContentPane().add(telefone);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnNewButton.setBounds(406, 270, 86, 38);
 		frame.getContentPane().add(btnNewButton);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Selecione o sexo", "Masculino", "Feminino", "Não binário"}));
-		comboBox.setBounds(194, 246, 147, 17);
-		frame.getContentPane().add(comboBox);
+		
+		
+		JComboBox<Object> sexo = new JComboBox<Object>();
+		sexo.setModel(new DefaultComboBoxModel<Object>(new String[] {"Selecione o sexo", "Masculino", "Feminino"}));
+		sexo.setBounds(194, 246, 147, 17);
+		frame.getContentPane().add(sexo);
+		
+		JRadioButton cliente = new JRadioButton("Cliente");
+		cliente.setBounds(194, 276, 60, 29);
+		cliente.setActionCommand("cliente");
+		frame.getContentPane().add(cliente);
+		
+		JRadioButton proprietario = new JRadioButton("Proprietario");
+		proprietario.setBounds(254, 279, 126, 23);
+		proprietario.setActionCommand("proprietario");
+		frame.getContentPane().add(proprietario);
+		
+		ButtonGroup grupo = new ButtonGroup();
+		grupo.add(cliente);
+		grupo.add(proprietario);
+		
+		JLabel lblNewLabel_1_1_1_1_1_1_1_1 = new JLabel("Sexo");
+		lblNewLabel_1_1_1_1_1_1_1_1.setBounds(90, 249, 45, 13);
+		frame.getContentPane().add(lblNewLabel_1_1_1_1_1_1_1_1);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Usuario usuario = new Usuario();
+				String sx = sexo.getSelectedItem() == "Masculino"? "masculino" :"feminino";
+				String permissao = grupo.getSelection().getActionCommand() == "cliente" ? "cliente" : "proprietario"; 
+				usuario.cadastrar(nome.getText(), cpf.getText(), dataNasc.getText(),endereco.getText(), telefone.getText(), email.getText(), sx, permissao, senha.getText());
+			}
+		});
 	}
 }

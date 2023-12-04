@@ -14,7 +14,6 @@ public class Usuario {
 	private String email;
 	private Sexo sexo;
 	private Permissao permissao;
-	private String codigoReserva;
 	private String senha;
 	private ArquivoUsuario bd;
 	private ArquivoHotel bdHotel;
@@ -41,17 +40,17 @@ public class Usuario {
 	}
 	
 	public void cadastrar(String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
-			String sexo, String permissao, String codigoReserva, String senha) {
+			String sexo, String permissao, String senha) {
 		int id = this.bd.novoID();
-		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, codigoReserva, senha);
+		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
 		this.bd.cadastrar(this.toString());		
 		System.out.println("User criado com sucesso");
 	}
 	
 	public void editarUsuario(int id, String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
-			String sexo, String permissao, String codigoReserva, String senha) {
+			String sexo, String permissao, String senha) {
 		
-		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, codigoReserva, senha);
+		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
 		this.bd.editar(id,this.toString());
 		
 		System.out.println("User editado com sucesso");
@@ -62,8 +61,8 @@ public class Usuario {
 	}
 	
 	public void adicionarDados(int id, String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
-			String sexo, String permissao, String codigoReserva, String senha) {
-		boolean status = this.validarDados(nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, codigoReserva, senha);
+			String sexo, String permissao, String senha) {
+		boolean status = this.validarDados(nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
 		Sexo sexoUsuario;
 		Permissao permissaoUsuario;
 		
@@ -87,7 +86,6 @@ public class Usuario {
 		SimpleDateFormat data = new SimpleDateFormat(dataNasc);
 		
 		this.setId(id);
-		this.setCodigoReserva(codigoReserva);
 		this.setCpf(cpf);
 		this.setDataNasc(data);
 		this.setNome(nome);
@@ -131,7 +129,7 @@ public class Usuario {
 	}
 	
 	private boolean validarDados(String nome, String cpf, String dataNasc, String endereco, String telefone, String email,
-			String sexo, String permissao, String codigoReserva, String senha) {
+			String sexo, String permissao, String senha) {
 		boolean status = true;
 		
 		if(nome.isEmpty()) status = false;
@@ -142,7 +140,6 @@ public class Usuario {
 		if(email.isEmpty()) status = false;
 		if(sexo.isEmpty()) status = false;
 		if(permissao.isEmpty()) status = false;
-		if(codigoReserva.isEmpty()) status = false;
 		if(senha.isEmpty()) status = false;
 		
 		return status;
@@ -230,14 +227,6 @@ public class Usuario {
 		this.permissao = permissao;
 	}
 
-	public String getCodigoReserva() {
-		return codigoReserva;
-	}
-
-	public void setCodigoReserva(String codigoReserva) {
-		this.codigoReserva = codigoReserva;
-	}
-
 	public String getSenha() {
 		return senha;
 	}
@@ -258,8 +247,7 @@ public class Usuario {
 	public String toString() {
 		Date dataFormatada = new Date();
 		return id+","+ nome + ",:" + cpf + "," + dataNasc.format(dataFormatada) + "," + endereco
-				+"," + telefone + "," + email + "," + sexo + "," + permissao
-				+ "," + codigoReserva + "," + senha;
+				+"," + telefone + "," + email + "," + sexo + "," + permissao + "," + senha;
 	}
 	
 }
