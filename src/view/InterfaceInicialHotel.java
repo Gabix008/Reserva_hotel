@@ -54,16 +54,20 @@ public class InterfaceInicialHotel {
 		lblNewLabel_1.setBounds(10, 91, 169, 22);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("Cadastro de Quarto");
-		btnNewButton.setBounds(10, 143, 123, 33);
+		JButton btnNewButton = new JButton("Cadastro \r\nde \r\nQuarto");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 7));
+		btnNewButton.setBounds(10, 143, 123, 56);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Informações de Cadastro");
-		btnNewButton_1.setBounds(143, 143, 163, 33);
+		JButton btnNewButton_1 = new JButton("Informações \r\nde \r\nCadastro");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 8));
+		btnNewButton_1.setToolTipText("");
+		btnNewButton_1.setBounds(143, 143, 163, 56);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Reservas");
-		btnNewButton_2.setBounds(317, 145, 109, 33);
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 7));
+		btnNewButton_2.setBounds(316, 143, 109, 56);
 		frame.getContentPane().add(btnNewButton_2);
 	}
 
