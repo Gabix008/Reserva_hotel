@@ -22,6 +22,20 @@ public class Main {
 				}
 			}
 		});
+		// Usuario usuer = new Usuario();
+		// usuer.login("pedrpg5@gmail.com", "abc");
+		// Hotel teste = new Hotel();
+		// teste.buscarHotel(5);
+		// teste.cadastrarQuarto(usuer, 150, "Quarto 150", 8, 7);
+		// teste.cadastrarQuarto(usuer, 1500, "Quarto 150", 8, 7);
+		// Map<Integer, Hotel> hoteis = teste.buscarHoteis("inhumas", "2023/12/06",
+		// "2023/12/08");
+
+		// for (Hotel hotel : hoteis.values()) {
+		// for (Quarto quarto : hotel.getQuartos().values()) {
+		// System.out.println(quarto.toString());
+		// }
+		// }
 	}
 
 }

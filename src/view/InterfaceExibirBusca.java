@@ -8,6 +8,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import br.edu.ifg.Usuario;
+import br.edu.ifg.Hotel;
+import br.edu.ifg.Quarto;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
@@ -38,14 +42,30 @@ public class InterfaceExibirBusca extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public InterfaceExibirBusca(Usuario usuario) {
-		initialize(usuario);
+	public InterfaceExibirBusca(Usuario usuario, Map<Integer, Hotel> hoteis) {
+		initialize(usuario, hoteis);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Usuario usuario) {
+	private void initialize(Usuario usuario, Map<Integer, Hotel> hoteis) {
+		int qtd = 0;
+		for (Hotel hotel : hoteis.values()) {
+			qtd += hotel.getQuartos().size();
+		}
+
+		Object[][] array = new Object[qtd][3];
+		int rowIndex = 0;
+		for (Hotel hotel : hoteis.values()) {
+			array[rowIndex][0] = hotel.getNome();
+			array[rowIndex][1] = hotel.getCidade();
+			for (Quarto quarto : hotel.getQuartos().values()) {
+				array[rowIndex][2] = quarto.getPreco(); // Adicione mais elementos conforme necessário
+				rowIndex++;
+				System.out.println(rowIndex);
+			}
+		}
 		setBounds(100, 100, 504, 352);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -56,14 +76,18 @@ public class InterfaceExibirBusca extends JFrame {
 
 		table_1 = new JTable();
 		table_1.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		table_1.setModel(new DefaultTableModel(
-				new Object[][] {
-						{ null, null, null },
-				},
-				new String[] {
-						"Nome", "Local", "Pre\u00E7o"
-				}));
 		table_1.setToolTipText("");
+		table_1.setModel(new DefaultTableModel(
+				array,
+				new String[] { "Nome", "Cidade", "Preço" }));
+		DefaultTableModel model = (DefaultTableModel) table_1.getModel();
+		for (Hotel hotel : hoteis.values()) {
+			for (Quarto quarto : hotel.getQuartos().values()) {
+				Object[] resultado = { hotel.getNome(), hotel.getCidade(), quarto.getPreco() };
+				model.addRow(resultado);
+			}
+		}
+		// model.setRowCount(qtd); // Clear existing data
 		table_1.setBounds(10, 33, 470, 272);
 		getContentPane().add(table_1);
 

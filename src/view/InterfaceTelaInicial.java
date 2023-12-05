@@ -7,13 +7,19 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import br.edu.ifg.Hotel;
+import br.edu.ifg.Permissao;
+import br.edu.ifg.Quarto;
 import br.edu.ifg.Usuario;
+import java.util.HashMap;
+import java.util.Map;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 
 public class InterfaceTelaInicial extends JFrame {
@@ -84,7 +90,7 @@ public class InterfaceTelaInicial extends JFrame {
                 dispose();
             }
         });
-        btnNewButton_2_1.setBounds(418, 52, 79, 21);
+        btnNewButton_2_1.setBounds(418, 75, 79, 21);
         getContentPane().add(btnNewButton_2_1);
 
         textField_2 = new JTextField();
@@ -103,11 +109,28 @@ public class InterfaceTelaInicial extends JFrame {
         getContentPane().add(textField_1);
 
         JButton btnNewButton = new JButton("Buscar Hotel\r\n");
-        btnNewButton.setBounds(312, 234, 89, 21);
+        btnNewButton.setBounds(308, 210, 89, 21);
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                Hotel hotel = new Hotel();
+                Map<Integer, Hotel> hoteis = new HashMap<Integer, Hotel>();
+                System.out.println(textField.getText());
+                System.out.println(textField_2.getText());
+                System.out.println(textField_1.getText());
+                try {
+                    hotel.buscarHoteis(textField_2.getText(), textField.getText(), textField_1.getText());
+                } catch (ParseException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+
+                for (Hotel hotel1 : hoteis.values()) {
+                    for (Quarto quarto : hotel1.getQuartos().values()) {
+                        System.out.println(quarto.toString());
+                    }
+                }
                 setVisible(false);
-                new InterfaceExibirBusca(usuario).setVisible(true);
+                new InterfaceExibirBusca(usuario, hoteis).setVisible(true);
             }
         });
         getContentPane().add(btnNewButton);
@@ -126,5 +149,17 @@ public class InterfaceTelaInicial extends JFrame {
         lblNewLabel_2_1.setBounds(222, 260, 64, 17);
         lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         getContentPane().add(lblNewLabel_2_1);
+
+        if (usuario.getPermissao() == Permissao.PROPRIETARIO) {
+            JButton btnNewButton_2_1_1 = new JButton("C. Hoteis");
+            btnNewButton_2_1_1.setBounds(418, 49, 79, 21);
+            btnNewButton_2_1_1.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    setVisible(false);
+                    new InterfaceCadastroHotel(usuario).getFrame().setVisible(true);
+                }
+            });
+            getContentPane().add(btnNewButton_2_1_1);
+        }
     }
 }
