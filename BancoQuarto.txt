@@ -1,2 +1,2 @@
-1,tem ar condicionado,1,1,true,15.15,0
-2,Nao tem descrição,3,4,true,500.0,0
+1,Quarto 150,8,7,true,150.0,5
+2,Quarto 150,8,7,true,1500.0,5

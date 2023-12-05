@@ -7,7 +7,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
-import br.edu.ifg.Permissao;
 import br.edu.ifg.Usuario;
 
 import javax.swing.JComboBox;
@@ -29,20 +28,18 @@ public class InterfaceDadosCliente extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                	Usuario usuario = new Usuario();
-					usuario.login("gabi@gmail.com", "123");
-                    InterfaceDadosCliente window = new InterfaceDadosCliente(usuario);
-                    window.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+    // public static void main(String[] args) {
+    // EventQueue.invokeLater(new Runnable() {
+    // public void run() {
+    // try {
+    // InterfaceDadosCliente window = new InterfaceDadosCliente();
+    // window.setVisible(true);
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // }
+    // }
+    // });
+    // }
 
     /**
      * Create the application.

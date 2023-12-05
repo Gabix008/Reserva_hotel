@@ -200,6 +200,45 @@ public class ArquivoReserva {
         return 1;
     }
 
+    public Map<Integer, Reserva> getReservas(int idUsuario, Usuario usuario) {
+        Map<Integer, Reserva> reservas = new HashMap<Integer, Reserva>();
+
+        try {
+            String caminho = System.getProperty("user.dir");
+
+            FileReader fileReader = new FileReader(caminho + "/" + this.getPath());
+
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String linha;
+
+            while ((linha = bufferedReader.readLine()) != null) {
+                String[] dados = linha.split(",");
+                if (Integer.parseInt(dados[5]) == idUsuario) {
+                    int id = Integer.parseInt(dados[0]);
+                    double valor = Double.parseDouble(dados[1]);
+                    SimpleDateFormat dataInicio = new SimpleDateFormat(dados[2]);
+                    SimpleDateFormat dataFim = new SimpleDateFormat(dados[3]);
+                    boolean pago = Boolean.parseBoolean(dados[4]);
+                    int idHotel = Integer.parseInt(dados[6]);
+                    int idQuarto = Integer.parseInt(dados[7]);
+                    Hotel hotel = new Hotel();
+                    hotel.buscarHotel(idHotel);
+                    Quarto quarto = new Quarto();
+                    quarto.buscar(idQuarto);
+                    Reserva reserva = new Reserva();
+                    reserva.setReserva(id, dataInicio, dataFim, valor, usuario, hotel, quarto);
+                }
+
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            System.out.println("Ocorreu um erro ao ler o arquivo: " + e.getMessage());
+        }
+
+        return reservas;
+    }
+
     public void excluir(int id) {
         ArrayList<String> linhas = new ArrayList<String>();
         try {

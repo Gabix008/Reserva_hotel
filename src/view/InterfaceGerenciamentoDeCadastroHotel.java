@@ -27,22 +27,21 @@ public class InterfaceGerenciamentoDeCadastroHotel extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Usuario usuario = new Usuario();
-					usuario.login("pedrpg5@gmail.com", "abc");
-					Hotel hotel = new Hotel();
-					hotel.buscarHotel(1);
-					InterfaceGerenciamentoDeCadastroHotel window = new InterfaceGerenciamentoDeCadastroHotel(usuario,hotel);
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	// public static void main(String[] args) {
+	// EventQueue.invokeLater(new Runnable() {
+	// public void run() {
+	// try {
+	// Usuario usuario = new Usuario();
+	// usuario.login("gabi@gmail.com", "gabi123");
+	// InterfaceGerenciamentoDeCadastroHotel window = new
+	// InterfaceGerenciamentoDeCadastroHotel(usuario);
+	// window.setVisible(true);
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
+	// }
+	// });
+	// }
 
 	/**
 	 * Create the application.
@@ -58,12 +57,12 @@ public class InterfaceGerenciamentoDeCadastroHotel extends JFrame {
 		setBounds(100, 100, 450, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-		
+
 		JLabel lblInformaesHotel = new JLabel("INFORMAÇÕES HOTEL");
 		lblInformaesHotel.setFont(new Font("Tahoma", Font.BOLD, 23));
 		lblInformaesHotel.setBounds(82, 10, 265, 51);
 		getContentPane().add(lblInformaesHotel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("NOME:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1.setBounds(20, 58, 53, 17);
@@ -119,12 +118,13 @@ public class InterfaceGerenciamentoDeCadastroHotel extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				new InterfaceInicialHotel(usuario).setVisible(true);
+				new InterfaceInicialHotel(usuario).setVisible(true);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnNewButton.setBounds(301, 228, 110, 33);
 		getContentPane().add(btnNewButton);
-		
+
 		JLabel lblNewLabel_3_1 = new JLabel("ENDEREÇO:");
 		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_3_1.setBounds(20, 118, 86, 13);
@@ -147,7 +147,7 @@ public class InterfaceGerenciamentoDeCadastroHotel extends JFrame {
 				hotel.editar(usuario, hotel.getId(), nome.getText(),endereco.getText(), descricao.getText(), cidade.getText(), telefone.getText(),pagamentoAntes.isSelected());
 			}
 		});
-		
+
 	}
 
 }

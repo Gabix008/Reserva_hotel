@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+import br.edu.ifg.Permissao;
 import br.edu.ifg.Usuario;
 
 import javax.swing.JTextField;
@@ -18,6 +19,7 @@ public class InterfaceLogin extends JFrame {
 	private JFrame frame;
 	private JTextField email;
 	private JTextField senha;
+	private Usuario usuario;
 
 	/**
 	 * Launch the application.
@@ -39,64 +41,63 @@ public class InterfaceLogin extends JFrame {
 	 * Create the application.
 	 */
 	public InterfaceLogin() {
-		initialize();
+		this.usuario = new Usuario();
+		initialize(usuario);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Usuario usuario) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		Usuario usuario = new Usuario();
-		
+
 		JLabel lblNewLabel = new JLabel("Login");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 26));
 		lblNewLabel.setBounds(182, 0, 73, 47);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("E-mail");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(85, 53, 55, 39);
 		frame.getContentPane().add(lblNewLabel_1);
-		
+
 		email = new JTextField();
 		email.setBounds(85, 91, 225, 19);
 		frame.getContentPane().add(email);
 		email.setColumns(10);
-		
+
 		JLabel lblNewLabel_1_1 = new JLabel("Senha");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1_1.setBounds(85, 112, 55, 39);
 		frame.getContentPane().add(lblNewLabel_1_1);
-		
+
 		senha = new JTextField();
 		senha.setColumns(10);
 		senha.setBounds(85, 150, 225, 19);
 		frame.getContentPane().add(senha);
-		
+
 		JButton btnNewButton = new JButton("Entrar");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Usuario usuario = new Usuario();
 				usuario.login(email.getText(), senha.getText());
 				setVisible(false);
-		        new InterfaceTelaInicial(usuario).setVisible(true);
+				new InterfaceTelaInicial(usuario).setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(225, 179, 85, 21);
 		frame.getContentPane().add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Não tem uma conta? Cadastre-se aqui\r\n");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-                new InterfaceCadastroCliente(usuario).setVisible(true);
+				new InterfaceCadastroCliente(usuario).setVisible(true);
 			}
 		});
 		btnNewButton_1.setBounds(85, 232, 225, 21);
@@ -127,5 +128,4 @@ public class InterfaceLogin extends JFrame {
 		this.senha = senha;
 	}
 
-	
 }

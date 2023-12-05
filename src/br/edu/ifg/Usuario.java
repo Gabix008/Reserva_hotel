@@ -100,7 +100,8 @@ public class Usuario {
 		this.setPermissao(permissaoUsuario);
 	}
 
-	public Hotel cadastraHotel(String nome, String endereco, String descricao, String telefone, String cidade, boolean pagamentoAnte) {
+	public Hotel cadastraHotel(String nome, String endereco, String descricao, String telefone, String cidade,
+			boolean pagamentoAnte) {
 		boolean permissao = this.validarPermissao();
 		boolean status = this.validarDadoHotel(nome, endereco, descricao, cidade, telefone);
 
@@ -115,7 +116,7 @@ public class Usuario {
 		}
 
 		Hotel hotel = new Hotel();
-		hotel.cadastrar(nome, endereco, descricao, cidade,telefone, pagamentoAnte, this.getId());
+		hotel.cadastrar(nome, endereco, descricao, cidade, telefone, pagamentoAnte, this.getId());
 		System.out.println("Hotel criado");
 		return hotel;
 	}
