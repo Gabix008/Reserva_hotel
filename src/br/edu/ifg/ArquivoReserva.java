@@ -139,7 +139,7 @@ public class ArquivoReserva {
         }
     }
 
-    public void editar(int idQuarto, String conteudo) {
+    public void editar(int idReserva, String conteudo) {
         ArrayList<String> linhas = new ArrayList<String>();
         try {
             String caminho = System.getProperty("user.dir");
@@ -152,7 +152,7 @@ public class ArquivoReserva {
 
             while ((linha = bufferedReader.readLine()) != null) {
                 String[] quarto = linha.split(",");
-                if (Integer.parseInt(quarto[0]) == idQuarto) {
+                if (Integer.parseInt(quarto[0]) == idReserva) {
                     String novaLinha = conteudo;
                     linhas.add(novaLinha);
                 } else {

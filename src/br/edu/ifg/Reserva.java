@@ -9,6 +9,7 @@ public class Reserva {
 	private SimpleDateFormat dataInicio;
 	private SimpleDateFormat dataFim;
 	private double valorTotal;
+	private boolean pago;
 	private Usuario usuario;
 	private Hotel hotel;
 	private Quarto quarto;
@@ -21,16 +22,17 @@ public class Reserva {
 		this.bdQuarto = new ArquivoQuarto("BancoQuarto.txt");
 	}
 
-	public void CadastrarReserva(String dataInicio, String dataFim, double valorTotal,
-			Usuario usuario, Hotel hotel, Quarto quarto) throws ParseException {
+	public void CadastrarReserva(String dataInicio, String dataFim, Usuario usuario, Hotel hotel, Quarto quarto)
+			throws ParseException {
 		SimpleDateFormat dataInc = new SimpleDateFormat(dataInicio);
 		SimpleDateFormat dataF = new SimpleDateFormat(dataFim);
 		this.setDataInicio(dataInc);
 		this.setDataFim(dataF);
-		this.setValorTotal(valorTotal);
+		this.setValorTotal(quarto.getPreco());
 		this.setUsuario(usuario);
 		this.setHotel(hotel);
 		this.setQuarto(quarto);
+		this.setPago(false);
 		this.setId(this.bd.novoID());
 		boolean status = this.bd.verificarDisponibilidade(getDataInicio(), getDataFim(), hotel, quarto);
 		if (!status) {
@@ -40,9 +42,9 @@ public class Reserva {
 		this.bd.cadastrar(this.toString());
 	}
 
-	public void EditarReserva(int id, SimpleDateFormat dataInicio, SimpleDateFormat dataFim, double valorTotal,
+	public void EditarReserva(int id, SimpleDateFormat dataInicio, SimpleDateFormat dataFim,
 			Usuario usuario, Hotel hotel, Quarto quarto) {
-		this.setReserva(id, dataInicio, dataFim, valorTotal, usuario, hotel, quarto);
+		this.setReserva(id, dataInicio, dataFim, quarto.getPreco(), usuario, hotel, quarto);
 	}
 
 	public void setReserva(int id, SimpleDateFormat dataInicio, SimpleDateFormat dataFim, double valorTotal,
@@ -54,6 +56,11 @@ public class Reserva {
 		this.setUsuario(usuario);
 		this.setHotel(hotel);
 		this.setQuarto(quarto);
+	}
+
+	public void realizarPagamento() {
+		this.setPago(true);
+		this.bd.editar(id, this.toString());
 	}
 
 	public int getId() {
@@ -112,10 +119,18 @@ public class Reserva {
 		this.quarto = quarto;
 	}
 
+	public boolean isPago() {
+		return pago;
+	}
+
+	public void setPago(boolean pago) {
+		this.pago = pago;
+	}
+
 	@Override
 	public String toString() {
 		Date data = new Date();
-		return id + "," + valorTotal + "," + dataInicio.format(data) + "," + dataFim.format(data) + ","
+		return id + "," + valorTotal + "," + dataInicio.format(data) + "," + dataFim.format(data) + "," + pago + ","
 				+ usuario.getId() + "," + hotel.getId() + "," + quarto.getId();
 	}
 
