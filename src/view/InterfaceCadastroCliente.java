@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import br.edu.ifg.Sexo;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InterfaceCadastroCliente extends JFrame {
 
@@ -130,6 +132,12 @@ public class InterfaceCadastroCliente extends JFrame {
 		getContentPane().add(textField_6);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new InterfaceTelaInicial().setVisible(true);
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnNewButton.setBounds(406, 270, 86, 38);
 		getContentPane().add(btnNewButton);

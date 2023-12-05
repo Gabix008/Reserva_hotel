@@ -8,10 +8,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class InterfaceExibirBusca {
+public class InterfaceExibirBusca extends JFrame {
 
-	private JFrame frame;
 	private JTable table;
 	private JTable table_1;
 
@@ -23,7 +24,7 @@ public class InterfaceExibirBusca {
 			public void run() {
 				try {
 					InterfaceExibirBusca window = new InterfaceExibirBusca();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,18 +43,13 @@ public class InterfaceExibirBusca {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setBounds(100, 100, 504, 352);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Exibindo hotéis da pesquisa feita\r\n");
-		lblNewLabel.setBounds(10, 10, 149, 13);
-		frame.getContentPane().add(lblNewLabel);
-		
-		table = new JTable();
-		table.setBounds(57, 90, 1, 1);
-		frame.getContentPane().add(table);
+		lblNewLabel.setBounds(10, 10, 233, 13);
+		getContentPane().add(lblNewLabel);
 		
 		table_1 = new JTable();
 		table_1.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -66,11 +62,27 @@ public class InterfaceExibirBusca {
 			}
 		));
 		table_1.setToolTipText("");
-		table_1.setBounds(10, 33, 416, 220);
-		frame.getContentPane().add(table_1);
+		table_1.setBounds(10, 33, 470, 272);
+		getContentPane().add(table_1);
 		
 		JButton btnNewButton = new JButton("Reservar");
-		btnNewButton.setBounds(341, 6, 85, 21);
-		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new InterfaceReserva().setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(347, 6, 113, 21);
+		getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Inicio");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new InterfaceTelaInicial().setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(223, 6, 113, 21);
+		getContentPane().add(btnNewButton_1);
 	}
 }
