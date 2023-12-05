@@ -91,7 +91,7 @@ public class ArquivoUsuario {
 		}
 	}
 
-	public void realizaLoginUsuario(Usuario user, String emailUsuaraio, String senhaUsuaraio) {
+	public void realizaLoginUsuario(Usuario user, String emailUsuario, String senhaUsuario) {
 		try {
 			String caminho = System.getProperty("user.dir");
 
@@ -102,7 +102,7 @@ public class ArquivoUsuario {
 			String linha;
 			while ((linha = bufferedReader.readLine()) != null) {
 				String[] usuario = linha.split(",");
-				if (usuario[10].equals(senhaUsuaraio) && emailUsuaraio.equals(usuario[6])) {
+				if (usuario[9].equals(senhaUsuario) && emailUsuario.equals(usuario[6])) {
 					user.setId(Integer.parseInt(usuario[0]));
 					user.setNome(usuario[1]);
 					user.setCpf(usuario[2]);
