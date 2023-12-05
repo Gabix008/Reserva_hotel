@@ -103,7 +103,7 @@ public class InterfaceCadastroCliente extends JFrame {
 		nome.setBounds(194, 75, 147, 19);
 		getContentPane().add(nome);
 		nome.setColumns(10);
-		
+
 		dataNasc = new JTextField();
 		dataNasc.setColumns(10);
 		dataNasc.setBounds(194, 104, 147, 19);
@@ -148,7 +148,7 @@ public class InterfaceCadastroCliente extends JFrame {
 		
 		
 		JComboBox<Object> sexo = new JComboBox<Object>();
-		sexo.setModel(new DefaultComboBoxModel<Object>(new String[] {"Selecione o sexo", "Masculino", "Feminino"}));
+		sexo.setModel(new DefaultComboBoxModel<Object>(new String[] { "Selecione o sexo", "Masculino", "Feminino" }));
 		sexo.setBounds(194, 246, 147, 17);
 		getContentPane().add(sexo);
 		
@@ -165,7 +165,7 @@ public class InterfaceCadastroCliente extends JFrame {
 		ButtonGroup grupo = new ButtonGroup();
 		grupo.add(cliente);
 		grupo.add(proprietario);
-		
+
 		JLabel lblNewLabel_1_1_1_1_1_1_1_1 = new JLabel("Sexo");
 		lblNewLabel_1_1_1_1_1_1_1_1.setBounds(90, 249, 45, 13);
 		getContentPane().add(lblNewLabel_1_1_1_1_1_1_1_1);
@@ -173,9 +173,10 @@ public class InterfaceCadastroCliente extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Usuario usuario = new Usuario();
-				String sx = sexo.getSelectedItem() == "Masculino"? "masculino" :"feminino";
-				String permissao = grupo.getSelection().getActionCommand() == "cliente" ? "cliente" : "proprietario"; 
-				usuario.cadastrar(nome.getText(), cpf.getText(), dataNasc.getText(),endereco.getText(), telefone.getText(), email.getText(), sx, permissao, senha.getText());
+				String sx = sexo.getSelectedItem() == "Masculino" ? "masculino" : "feminino";
+				String permissao = grupo.getSelection().getActionCommand() == "cliente" ? "cliente" : "proprietario";
+				usuario.cadastrar(nome.getText(), cpf.getText(), dataNasc.getText(), endereco.getText(),
+						telefone.getText(), email.getText(), sx, permissao, senha.getText());
 			}
 		});
 	}

@@ -49,9 +49,9 @@ public class Usuario {
 
 	public void editarUsuario(int id, String nome, String cpf, String dataNasc, String endereco, String telefone,
 			String email,
-			String sexo, String permissao, String senha) {
+			String sexo, String permissao, String codigoReserva, String senha) {
 
-		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao,  senha);
+		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
 		this.bd.editar(id, this.toString());
 
 		System.out.println("User editado com sucesso");
@@ -64,8 +64,7 @@ public class Usuario {
 	public void adicionarDados(int id, String nome, String cpf, String dataNasc, String endereco, String telefone,
 			String email,
 			String sexo, String permissao, String senha) {
-		boolean status = this.validarDados(nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao,
-				 senha);
+		boolean status = this.validarDados(nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
 		Sexo sexoUsuario;
 		Permissao permissaoUsuario;
 

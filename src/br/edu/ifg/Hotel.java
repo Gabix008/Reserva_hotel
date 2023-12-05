@@ -2,6 +2,8 @@ package br.edu.ifg;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Hotel {
 	private int id;
@@ -56,10 +58,11 @@ public class Hotel {
 		System.out.println("Quarto criado");
 	}
 
-	public Map<Integer, Hotel> buscarHoteis(String cidade) {
+	public Map<Integer, Hotel> buscarHoteis(String cidade, String dataInicio, String dataFim) throws ParseException {
 		Map<Integer, Hotel> hoteis = new HashMap<>();
-
-		hoteis = this.bd.buscarHoteis(cidade);
+		SimpleDateFormat dataInic = new SimpleDateFormat(dataInicio);
+		SimpleDateFormat dataF = new SimpleDateFormat(dataFim);
+		hoteis = this.bd.buscarHoteis(cidade, dataInic, dataF);
 
 		return hoteis;
 	}
