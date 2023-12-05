@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
+
+import br.edu.ifg.Hotel;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -75,6 +78,8 @@ public class InterfaceCadastroQuarto extends JFrame{
 		JButton btnNewButton = new JButton("CADASTRAR");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Hotel hotel = new Hotel();
+				//hotel.cadastrarQuarto(null, , getName(), ALLBITS, ABORT);
 				setVisible(false);
 				new InterfaceInicialHotel().setVisible(true);
 			}

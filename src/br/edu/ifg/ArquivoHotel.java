@@ -84,10 +84,11 @@ public class ArquivoHotel {
 					String nome = dados[1];
 					String cidade = dados[2];
 					String endereco = dados[3];
-					String descricao = dados[4];
-					boolean pagamentoAnte = Boolean.parseBoolean(dados[5]);
+					String telefone = dados[4];
+					String descricao = dados[5];
+					boolean pagamentoAnte = Boolean.parseBoolean(dados[6]);
 					Hotel hotel = new Hotel();
-					hotel.setHotel(id, nome, endereco, descricao, cidade, pagamentoAnte, idUsuario);
+					hotel.setHotel(id, nome, endereco, descricao, cidade, pagamentoAnte, idUsuario, telefone);
 					hoteis.put(id, hotel);
 				}
 			}
@@ -115,12 +116,13 @@ public class ArquivoHotel {
 					int id = Integer.parseInt(dados[0]);
 					String nome = dados[1];
 					String endereco = dados[3];
-					String descricao = dados[4];
-					boolean pagamentoAnte = Boolean.parseBoolean(dados[5]);
-					int idUsuario = Integer.parseInt(dados[6]);
+					String telefone = dados[4];
+					String descricao = dados[5];
+					boolean pagamentoAnte = Boolean.parseBoolean(dados[6]);
+					int idUsuario = Integer.parseInt(dados[7]);
 					Hotel hotel = new Hotel();
 					hotel.setHotel(id, nome, endereco, descricao, cidade, pagamentoAnte,
-							idUsuario);
+							idUsuario, telefone);
 					hotel.buscarQuartos();
 					hoteis.put(id, hotel);
 				}
@@ -165,10 +167,11 @@ public class ArquivoHotel {
 					String nome = dados[1];
 					String cidade = dados[2];
 					String endereco = dados[3];
-					String descricao = dados[4];
-					boolean pagamentoAnte = Boolean.parseBoolean(dados[5]);
-					int idUsuario = Integer.parseInt(dados[6]);
-					hotel.setHotel(id, nome, endereco, descricao, cidade, pagamentoAnte, idUsuario);
+					String telefone = dados[4];
+					String descricao = dados[5];
+					boolean pagamentoAnte = Boolean.parseBoolean(dados[6]);
+					int idUsuario = Integer.parseInt(dados[7]);
+					hotel.setHotel(id, nome, endereco, descricao, cidade, pagamentoAnte, idUsuario, telefone);
 				}
 			}
 			bufferedReader.close();

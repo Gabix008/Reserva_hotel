@@ -86,14 +86,6 @@ public class InterfaceExibirBusca extends JFrame {
 		getContentPane().add(btnNewButton_1);
 	}
 
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
-
 	public JTable getTable() {
 		return table;
 	}

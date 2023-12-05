@@ -18,7 +18,6 @@ import br.edu.ifg.Usuario;
 
 public class InterfaceCadastroCliente extends JFrame {
 
-	private JFrame frame;
 	private JTextField nome;
 	private JTextField dataNasc;
 	private JTextField cpf;

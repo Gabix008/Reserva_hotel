@@ -11,6 +11,7 @@ public class Hotel {
 	private String endereco;
 	private String cidade;
 	private Map<Integer, Quarto> quartos = new HashMap<>();
+	private String telefone;
 	private String descricao;
 	private boolean pagamentoAnte;
 	private int idUsuario;
@@ -23,14 +24,16 @@ public class Hotel {
 		this.bdQuarto = new ArquivoQuarto("BancoQuarto.txt");
 	}
 
-	public void cadastrar(String nome, String endereco, String descricao, String cidade, boolean pagamentoAnte,
+	public void cadastrar(String nome, String endereco, String descricao, String cidade, String telefone, boolean pagamentoAnte,
 			int idUsuario) {
+		
 		this.setNome(nome);
 		this.setPagamentoAnte(pagamentoAnte);
 		this.setDescricao(descricao);
 		this.setEndereco(endereco);
 		this.setCidade(cidade.toLowerCase());
 		this.setIdUsuario(idUsuario);
+		this.setTelefone(telefone);
 		this.setId(this.bd.novoID());
 		this.bd.cadastrar(this.toString());
 	}
@@ -71,7 +74,7 @@ public class Hotel {
 		this.bd.buscarHotel(id, this);
 	}
 
-	public void editar(Usuario usuario, int id, String nome, String endereco, String descricao, String cidade,
+	public void editar(Usuario usuario, int id, String nome, String endereco, String descricao, String cidade, String telefone,
 			boolean pagamentoAnte) {
 		boolean permissao = usuario.validarPermissao();
 
@@ -86,7 +89,7 @@ public class Hotel {
 			System.out.println("Hotel não encontrado");
 			return;
 		}
-		this.setHotel(id, nome, endereco, descricao, cidade, pagamentoAnte, usuario.getId());
+		this.setHotel(id, nome, endereco, descricao, cidade, pagamentoAnte, usuario.getId(), telefone);
 		this.bd.editar(id, this.toString());
 		System.out.println("Hotel editado com sucesso!");
 	}
@@ -109,7 +112,7 @@ public class Hotel {
 	}
 
 	public void setHotel(int id, String nome, String endereco, String descricao, String cidade, boolean pagamentoAnte,
-			int idUsuario) {
+			int idUsuario, String telefone) {
 		this.setNome(nome);
 		this.setPagamentoAnte(pagamentoAnte);
 		this.setDescricao(descricao);
@@ -117,6 +120,7 @@ public class Hotel {
 		this.setCidade(cidade);
 		this.setIdUsuario(idUsuario);
 		this.setId(id);
+		this.setTelefone(telefone);
 	}
 
 	public void buscarQuartos() {
@@ -242,9 +246,17 @@ public class Hotel {
 		this.idUsuario = idUsuario;
 	}
 
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 	@Override
 	public String toString() {
-		return id + "," + nome + "," + cidade + "," + endereco + "," + descricao + "," + pagamentoAnte + ","
+		return id + "," + nome + "," + cidade + "," + endereco + "," + telefone + "," + descricao + "," + pagamentoAnte + ","
 				+ idUsuario;
 	}
 

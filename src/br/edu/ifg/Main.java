@@ -27,7 +27,7 @@ public class Main {
 		// teste.buscar(2);
 		// System.out.println(teste.toString());
 
-		// Usuario usuario = new Usuario();
+		//Usuario usuario = new Usuario();
 		// usuario.cadastrar("Gabrielly", "45454545", "2002/04/25", "jshadihs",
 		// "996915851", "emailGabi.com", "feminino", "cliente","3847246723", "iuda");
 		// usuario.cadastrar("Oscar", "45124678", "2002/09/14", "efgh", "993564781",

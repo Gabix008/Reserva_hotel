@@ -106,6 +106,7 @@ public class ArquivoUsuario {
 					user.setId(Integer.parseInt(usuario[0]));
 					user.setNome(usuario[1]);
 					user.setCpf(usuario[2]);
+					System.out.println(usuario[3]);
 					user.setDataNasc(new SimpleDateFormat(usuario[3]));
 					user.setEndereco(usuario[4]);
 					user.setTelefone(usuario[5]);

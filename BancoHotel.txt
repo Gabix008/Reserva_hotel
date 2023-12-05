@@ -1,4 +1,0 @@
-1,TesteHotel,inhumas,Teste,TesteGErakbs,false,5
-2,TesteHotel,inhumas,Teste,TesteGErakbs,false,5
-3,TesteHotel,inhumas,Teste,TesteGErakbs,false,5
-5,pedroHotel,ordalia,teste,teste descricao,false,5

@@ -36,6 +36,7 @@ public class Usuario {
 		}
 
 		this.bd.realizaLoginUsuario(this, email, senha);
+		System.out.println(this.toString());
 		System.out.println("login feito");
 	}
 
@@ -99,9 +100,9 @@ public class Usuario {
 		this.setPermissao(permissaoUsuario);
 	}
 
-	public Hotel cadastraHotel(String nome, String endereco, String descricao, String cidade, boolean pagamentoAnte) {
+	public Hotel cadastraHotel(String nome, String endereco, String descricao, String telefone, String cidade, boolean pagamentoAnte) {
 		boolean permissao = this.validarPermissao();
-		boolean status = this.validarDadoHotel(nome, endereco, descricao, cidade);
+		boolean status = this.validarDadoHotel(nome, endereco, descricao, cidade, telefone);
 
 		if (!permissao) {
 			System.out.println("Acesso Negado");
@@ -114,12 +115,12 @@ public class Usuario {
 		}
 
 		Hotel hotel = new Hotel();
-		hotel.cadastrar(nome, endereco, descricao, cidade, pagamentoAnte, this.getId());
+		hotel.cadastrar(nome, endereco, descricao, cidade,telefone, pagamentoAnte, this.getId());
 		System.out.println("Hotel criado");
 		return hotel;
 	}
 
-	private boolean validarDadoHotel(String nome, String endereco, String descricao, String cidade) {
+	private boolean validarDadoHotel(String nome, String endereco, String descricao, String cidade, String telefone) {
 		boolean status = true;
 
 		if (nome.isEmpty())
@@ -129,6 +130,8 @@ public class Usuario {
 		if (endereco.isEmpty())
 			status = false;
 		if (cidade.isEmpty())
+			status = false;
+		if (telefone.isEmpty())
 			status = false;
 
 		return status;
@@ -262,7 +265,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		Date dataFormatada = new Date();
-		return id + "," + nome + ",:" + cpf + "," + dataNasc.format(dataFormatada) + "," + endereco
+		return id + "," + nome + "," + cpf + "," + dataNasc.format(dataFormatada) + "," + endereco
 				+ "," + telefone + "," + email + "," + sexo + "," + permissao + "," + senha;
 	}
 
