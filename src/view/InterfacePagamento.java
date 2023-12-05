@@ -28,22 +28,6 @@ public class InterfacePagamento extends JFrame {
 	private JTextField textField;
 
 	/**
-	 * Launch the application.
-	 */
-	// public static void main(String[] args) {
-	// EventQueue.invokeLater(new Runnable() {
-	// public void run() {
-	// try {
-	// InterfacePagamento window = new InterfacePagamento();
-	// window.setVisible(true);
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	// }
-	// });
-	// }
-
-	/**
 	 * Create the application.
 	 */
 	public InterfacePagamento(Usuario usuario) {

@@ -77,8 +77,9 @@ public class InterfaceExibirBusca extends JFrame {
 		table_1 = new JTable();
 		table_1.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		table_1.setToolTipText("");
+
 		table_1.setModel(new DefaultTableModel(
-				array,
+				new Object[][] {},
 				new String[] { "Nome", "Cidade", "Preço" }));
 		DefaultTableModel model = (DefaultTableModel) table_1.getModel();
 		for (Hotel hotel : hoteis.values()) {

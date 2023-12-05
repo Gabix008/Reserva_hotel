@@ -118,7 +118,7 @@ public class InterfaceTelaInicial extends JFrame {
                 System.out.println(textField_2.getText());
                 System.out.println(textField_1.getText());
                 try {
-                    hotel.buscarHoteis(textField_2.getText(), textField.getText(), textField_1.getText());
+                    hoteis = hotel.buscarHoteis(textField_2.getText(), textField.getText(), textField_1.getText());
                 } catch (ParseException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
@@ -130,7 +130,8 @@ public class InterfaceTelaInicial extends JFrame {
                     }
                 }
                 setVisible(false);
-                new InterfaceExibirBusca(usuario, hoteis).setVisible(true);
+                InterfaceExibirBusca teste = new InterfaceExibirBusca(usuario, hoteis);
+                teste.setVisible(true);
             }
         });
         getContentPane().add(btnNewButton);
