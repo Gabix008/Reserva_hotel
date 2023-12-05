@@ -36,7 +36,7 @@ public class InterfaceCadastroHotel {
 			public void run() {
 				try {
 					Usuario usuario = new Usuario();
-					usuario.login("emailOscar.com", "abc");
+					usuario.login("pedrpg5@gmail.com", "abc");
 					//System.out.println(usuario.toString());
 					InterfaceCadastroHotel window = new InterfaceCadastroHotel(usuario);
 					window.frame.setVisible(true);
@@ -147,10 +147,6 @@ public class InterfaceCadastroHotel {
 				Hotel hotel = new Hotel();
 				System.out.println(usuario.toString());
 				usuario.cadastraHotel(nome.getText(), endereco.getText(), descricao.getText(), cidade.getText(), telefone.getText(), pagamentoAntes.isSelected());
-				//String pagamentoAntes = 
-				//String sx = sexo.getSelectedItem() == "Masculino"? "masculino" :"feminino";
-			//	String permissao = grupo.getSelection().getActionCommand() == "cliente" ? "cliente" : "proprietario"; 
-				//usuario.cadastrar(nome.getText(), cpf.getText(), dataNasc.getText(),endereco.getText(), telefone.getText(), email.getText(), sx, permissao, senha.getText());
 			}
 		});
 	}

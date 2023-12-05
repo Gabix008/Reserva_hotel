@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
+import br.edu.ifg.Usuario;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -21,7 +24,9 @@ public class InterfaceInicialHotel extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfaceInicialHotel window = new InterfaceInicialHotel();
+					Usuario usuario = new Usuario();
+					usuario.login("gabi@gmail.com", "gabi123");
+					InterfaceInicialHotel window = new InterfaceInicialHotel(usuario);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,14 +38,14 @@ public class InterfaceInicialHotel extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public InterfaceInicialHotel() {
-		initialize();
+	public InterfaceInicialHotel(Usuario usuario) {
+		initialize(usuario);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Usuario usuario) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,7 +65,7 @@ public class InterfaceInicialHotel extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(true);
-				new InterfaceCadastroQuarto().setVisible(true);
+				new InterfaceCadastroQuarto(usuario).setVisible(true);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 7));
@@ -71,7 +76,7 @@ public class InterfaceInicialHotel extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(true);
-				new InterfaceGerenciamentoDeCadastroHotel().setVisible(true);
+				new InterfaceGerenciamentoDeCadastroHotel(usuario).setVisible(true);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 8));

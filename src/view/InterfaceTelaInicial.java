@@ -81,7 +81,7 @@ public class InterfaceTelaInicial extends JFrame {
         		dispose();
         	}
         });
-        btnNewButton_2_1.setBounds(418, 52, 79, 21);
+        btnNewButton_2_1.setBounds(418, 75, 79, 21);
         getContentPane().add(btnNewButton_2_1);
 
         textField_2 = new JTextField();
@@ -100,7 +100,7 @@ public class InterfaceTelaInicial extends JFrame {
         getContentPane().add(textField_1);
         
                 JButton btnNewButton = new JButton("Buscar Hotel\r\n");
-                btnNewButton.setBounds(312, 234, 89, 21);
+                btnNewButton.setBounds(308, 210, 89, 21);
                 btnNewButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         setVisible(false);
@@ -123,5 +123,9 @@ public class InterfaceTelaInicial extends JFrame {
         lblNewLabel_2_1.setBounds(222, 260, 64, 17);
         lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         getContentPane().add(lblNewLabel_2_1);
+        
+        JButton btnNewButton_2_1_1 = new JButton("C. Hoteis");
+        btnNewButton_2_1_1.setBounds(418, 49, 79, 21);
+        getContentPane().add(btnNewButton_2_1_1);
     }
 }

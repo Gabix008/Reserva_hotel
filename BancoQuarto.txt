@@ -1,0 +1,1 @@
+1,tem ar condicionado,1,1,true,15.15,0

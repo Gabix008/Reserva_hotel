@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import br.edu.ifg.Hotel;
+import br.edu.ifg.Usuario;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -26,7 +30,9 @@ public class InterfaceGerenciamentoDeCadastroHotel extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfaceGerenciamentoDeCadastroHotel window = new InterfaceGerenciamentoDeCadastroHotel();
+					Usuario usuario = new Usuario();
+					usuario.login("gabi@gmail.com", "gabi123");
+					InterfaceGerenciamentoDeCadastroHotel window = new InterfaceGerenciamentoDeCadastroHotel(usuario);
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,14 +44,14 @@ public class InterfaceGerenciamentoDeCadastroHotel extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public InterfaceGerenciamentoDeCadastroHotel() {
-		initialize();
+	public InterfaceGerenciamentoDeCadastroHotel(Usuario usuario) {
+		initialize(usuario);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Usuario usuario) {
 		setBounds(100, 100, 450, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -125,6 +131,14 @@ public class InterfaceGerenciamentoDeCadastroHotel extends JFrame {
 		textField_5.setColumns(10);
 		textField_5.setBounds(122, 140, 225, 19);
 		getContentPane().add(textField_5);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Hotel hotel 
+			}
+		});
+		
 	}
 
 }
