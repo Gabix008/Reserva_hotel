@@ -128,7 +128,7 @@ public class InterfacePagamento extends JFrame {
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
 		textField_7.setBounds(142, 85, 108, 19);
-		frame.getContentPane().add(textField_7);
+		getContentPane().add(textField_7);
 		
 		JLabel lblValor_1 = new JLabel("Valor Total");
 		lblValor_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -138,15 +138,15 @@ public class InterfacePagamento extends JFrame {
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(142, 115, 108, 19);
-		frame.getContentPane().add(textField);
+		getContentPane().add(textField);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Pix");
 		rdbtnNewRadioButton.setBounds(14, 41, 109, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton);
+		getContentPane().add(rdbtnNewRadioButton);
 			
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Cartão de credito");
 		rdbtnNewRadioButton_1.setBounds(14, 160, 109, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		getContentPane().add(rdbtnNewRadioButton_1);
 		
 		ButtonGroup grupo = new ButtonGroup();
 		grupo.add(rdbtnNewRadioButton);
@@ -159,6 +159,6 @@ public class InterfacePagamento extends JFrame {
 			}
 		});
 		btnGerarCdigo.setBounds(279, 82, 108, 35);
-		frame.getContentPane().add(btnGerarCdigo);
+		getContentPane().add(btnGerarCdigo);
 	}
 }
