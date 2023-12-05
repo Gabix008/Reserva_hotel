@@ -51,7 +51,11 @@ public class Main {
 		// Cartao cartao = new Cartao();
 		// cartao.cadastrarCartao("123", 500, 2, "412579355", "2053/10/31");
 		Usuario user = new Usuario();
-		user.login("emailOscar.com", "abc");
+		// user.cadastrar("Pedro", "7864587", "2002/04/25", "teste", "84575478",
+		// "pedrpg5@gmail.com", "masculino",
+		// "proprietario", "abc");
+		user.login("pedrpg5@gmail.com", "abc");
+		System.out.println(user.toString());
 		Hotel teste = new Hotel();
 		Map<Integer, Hotel> hoteis = teste.buscarHoteis("ordalia", "2023/12/04", "2023/12/07");
 		for (Hotel hotel : hoteis.values()) {
