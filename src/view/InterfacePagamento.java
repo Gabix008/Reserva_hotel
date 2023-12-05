@@ -15,9 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 
-public class InterfacePagamento {
+public class InterfacePagamento extends JFrame {
 
-	private JFrame frame;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
@@ -33,7 +32,7 @@ public class InterfacePagamento {
 			public void run() {
 				try {
 					InterfacePagamento window = new InterfacePagamento();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,74 +51,79 @@ public class InterfacePagamento {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 506, 378);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setBounds(100, 100, 506, 378);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Pagamento");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(180, 11, 81, 20);
-		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setBounds(10, 10, 81, 20);
+		getContentPane().add(lblNewLabel);
 		
 		JLabel lblValor = new JLabel("Valor Total");
 		lblValor.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblValor.setBounds(14, 192, 81, 20);
-		frame.getContentPane().add(lblValor);
+		getContentPane().add(lblValor);
 		
 		JButton btnNewButton = new JButton("Pagar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new InterfaceConfirmacao().setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(389, 288, 85, 21);
-		frame.getContentPane().add(btnNewButton);
+		getContentPane().add(btnNewButton);
 		
 		JLabel lblNmeroCarto = new JLabel("Número Cartão");
 		lblNmeroCarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNmeroCarto.setBounds(14, 217, 108, 20);
-		frame.getContentPane().add(lblNmeroCarto);
+		getContentPane().add(lblNmeroCarto);
 		
 		JLabel lblDataValidade = new JLabel("Data Validade");
 		lblDataValidade.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblDataValidade.setBounds(14, 247, 101, 20);
-		frame.getContentPane().add(lblDataValidade);
+		getContentPane().add(lblDataValidade);
 		
 		JLabel lblCvv = new JLabel("CVV");
 		lblCvv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblCvv.setBounds(14, 277, 59, 20);
-		frame.getContentPane().add(lblCvv);
+		getContentPane().add(lblCvv);
 		
 		JLabel lblParcelas = new JLabel("Parcelas");
 		lblParcelas.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblParcelas.setBounds(14, 308, 59, 20);
-		frame.getContentPane().add(lblParcelas);
+		getContentPane().add(lblParcelas);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(142, 195, 108, 19);
-		frame.getContentPane().add(textField_3);
+		getContentPane().add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(142, 221, 108, 19);
-		frame.getContentPane().add(textField_4);
+		getContentPane().add(textField_4);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
 		textField_5.setBounds(142, 250, 108, 19);
-		frame.getContentPane().add(textField_5);
+		getContentPane().add(textField_5);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
 		textField_6.setBounds(142, 280, 108, 19);
-		frame.getContentPane().add(textField_6);
+		getContentPane().add(textField_6);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"A vista", "1x", "2x", "3x", "4x"}));
 		comboBox.setBounds(142, 310, 108, 21);
-		frame.getContentPane().add(comboBox);
+		getContentPane().add(comboBox);
 		
 		JLabel lblPix = new JLabel("Código");
 		lblPix.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblPix.setBounds(10, 82, 81, 20);
-		frame.getContentPane().add(lblPix);
+		getContentPane().add(lblPix);
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
@@ -129,7 +133,7 @@ public class InterfacePagamento {
 		JLabel lblValor_1 = new JLabel("Valor Total");
 		lblValor_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblValor_1.setBounds(10, 112, 81, 20);
-		frame.getContentPane().add(lblValor_1);
+		getContentPane().add(lblValor_1);
 		
 		textField = new JTextField();
 		textField.setColumns(10);

@@ -1,7 +1,8 @@
 package view;
 
 import java.awt.EventQueue;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -11,10 +12,8 @@ import br.edu.ifg.Usuario;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class InterfaceLogin {
+public class InterfaceLogin extends JFrame {
 
 	private JFrame frame;
 	private JTextField email;
@@ -85,12 +84,20 @@ public class InterfaceLogin {
 			public void actionPerformed(ActionEvent e) {
 				Usuario usuario = new Usuario();
 				usuario.login(email.getText(), senha.getText());
+				setVisible(false);
+		        new InterfaceTelaInicial().setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(225, 179, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Não tem uma conta? Cadastre-se aqui\r\n");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+                new InterfaceCadastroCliente().setVisible(true);
+			}
+		});
 		btnNewButton_1.setBounds(85, 232, 225, 21);
 		frame.getContentPane().add(btnNewButton_1);
 	}

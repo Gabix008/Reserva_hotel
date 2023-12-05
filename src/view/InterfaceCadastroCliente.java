@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 
 import br.edu.ifg.Usuario;
 
-public class InterfaceCadastroCliente {
+public class InterfaceCadastroCliente extends JFrame {
 
 	private JFrame frame;
 	private JTextField nome;
@@ -35,7 +35,7 @@ public class InterfaceCadastroCliente {
 			public void run() {
 				try {
 					InterfaceCadastroCliente window = new InterfaceCadastroCliente();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -54,10 +54,9 @@ public class InterfaceCadastroCliente {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 516, 355);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setBounds(100, 100, 516, 355);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Cadastro");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -66,35 +65,35 @@ public class InterfaceCadastroCliente {
 		
 		JLabel label = new JLabel("New label");
 		label.setBounds(10, 50, 5, 6);
-		frame.getContentPane().add(label);
+		getContentPane().add(label);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nome");
 		lblNewLabel_1.setBounds(90, 78, 45, 13);
-		frame.getContentPane().add(lblNewLabel_1);
+		getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Data de Nascimento");
+		lblNewLabel_2.setBounds(90, 104, 94, 13);
+		getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_1_1 = new JLabel(" CPF ou CNPJ");
 		lblNewLabel_1_1.setBounds(90, 133, 79, 13);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("E-mail");
-		lblNewLabel_1_1_1.setBounds(90, 156, 45, 13);
-		frame.getContentPane().add(lblNewLabel_1_1_1);
+		lblNewLabel_1_1_1.setBounds(90, 153, 45, 13);
+		getContentPane().add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Senha");
-		lblNewLabel_1_1_1_1.setBounds(90, 179, 45, 13);
-		frame.getContentPane().add(lblNewLabel_1_1_1_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Data de Nascimento");
-		lblNewLabel_2.setBounds(90, 110, 94, 13);
-		frame.getContentPane().add(lblNewLabel_2);
+		lblNewLabel_1_1_1_1.setBounds(90, 176, 45, 13);
+		getContentPane().add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Endereço");
-		lblNewLabel_1_1_1_1_1.setBounds(90, 202, 45, 13);
-		frame.getContentPane().add(lblNewLabel_1_1_1_1_1);
+		lblNewLabel_1_1_1_1_1.setBounds(90, 199, 45, 13);
+		getContentPane().add(lblNewLabel_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Telefone");
-		lblNewLabel_1_1_1_1_1_1.setBounds(90, 225, 60, 13);
-		frame.getContentPane().add(lblNewLabel_1_1_1_1_1_1);
+		lblNewLabel_1_1_1_1_1_1.setBounds(90, 222, 60, 13);
+		getContentPane().add(lblNewLabel_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("Cadastrar como ");
 		lblNewLabel_1_1_1_1_1_1_1.setBounds(90, 284, 79, 13);
@@ -136,9 +135,15 @@ public class InterfaceCadastroCliente {
 		frame.getContentPane().add(telefone);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new InterfaceTelaInicial().setVisible(true);
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnNewButton.setBounds(406, 270, 86, 38);
-		frame.getContentPane().add(btnNewButton);
+		getContentPane().add(btnNewButton);
 		
 		
 		
