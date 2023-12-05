@@ -33,7 +33,8 @@ public class InterfaceCadastroCliente extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfaceCadastroCliente window = new InterfaceCadastroCliente();
+					Usuario usuario = new Usuario();
+					InterfaceCadastroCliente window = new InterfaceCadastroCliente(usuario);
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,14 +46,14 @@ public class InterfaceCadastroCliente extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public InterfaceCadastroCliente() {
-		initialize();
+	public InterfaceCadastroCliente(Usuario usuario) {
+		initialize(usuario);
 	}
 
 	/**
 	 * Initialize the contents of the 
 	 */
-	private void initialize() {
+	private void initialize(Usuario usuario) {
 		setBounds(100, 100, 516, 355);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -137,7 +138,7 @@ public class InterfaceCadastroCliente extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				new InterfaceTelaInicial().setVisible(true);
+				new InterfaceTelaInicial(usuario).setVisible(true);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -175,7 +176,7 @@ public class InterfaceCadastroCliente extends JFrame {
 				String sx = sexo.getSelectedItem() == "Masculino" ? "masculino" : "feminino";
 				String permissao = grupo.getSelection().getActionCommand() == "cliente" ? "cliente" : "proprietario";
 				usuario.cadastrar(nome.getText(), cpf.getText(), dataNasc.getText(), endereco.getText(),
-						telefone.getText(), email.getText(), sx, permissao, senha.getText());
+						telefone.getText(), email.getText(), sx, senha.getText(), permissao);
 			}
 		});
 	}

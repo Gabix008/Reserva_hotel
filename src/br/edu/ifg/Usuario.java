@@ -50,7 +50,7 @@ public class Usuario {
 
 	public void editarUsuario(int id, String nome, String cpf, String dataNasc, String endereco, String telefone,
 			String email,
-			String sexo, String permissao, String codigoReserva, String senha) {
+			String sexo, String permissao, String senha) {
 
 		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
 		this.bd.editar(id, this.toString());

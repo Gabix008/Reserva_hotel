@@ -108,7 +108,7 @@ public class InterfaceCadastroQuarto extends JFrame{
 				int qtdCamaSolteiro= Integer.parseInt((String) camaSolteiro.getSelectedItem());
 				hotel.cadastrarQuarto(usuario, Double.parseDouble(preco.getText()), descricao.getText(), qtdCamaCasal, qtdCamaSolteiro);
 				setVisible(false);
-				new InterfaceInicialHotel().setVisible(true);
+				new InterfaceInicialHotel(usuario).setVisible(true);
 			}
 		});
 		

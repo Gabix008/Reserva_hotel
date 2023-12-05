@@ -1,1 +1,2 @@
 1,tem ar condicionado,1,1,true,15.15,0
+2,Nao tem descrição,3,4,true,500.0,0

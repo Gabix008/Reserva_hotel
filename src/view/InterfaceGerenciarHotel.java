@@ -113,7 +113,7 @@ public class InterfaceGerenciarHotel extends JFrame{
 		Visualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				new InterfaceInicialHotel().setVisible(true);
+				new InterfaceInicialHotel(null).setVisible(true);
 			}
 		});
 		Visualizar.setFont(new Font("Tahoma", Font.BOLD, 10));

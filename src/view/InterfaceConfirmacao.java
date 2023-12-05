@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import br.edu.ifg.Usuario;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -20,7 +23,9 @@ public class InterfaceConfirmacao extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfaceConfirmacao window = new InterfaceConfirmacao();
+					Usuario usuario = new Usuario();
+					usuario.login("gabi@gmail.com", "123");
+					InterfaceConfirmacao window = new InterfaceConfirmacao(usuario);
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,14 +37,14 @@ public class InterfaceConfirmacao extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public InterfaceConfirmacao() {
-		initialize();
+	public InterfaceConfirmacao(Usuario usuario) {
+		initialize(usuario);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Usuario usuario) {
 		setBounds(100, 100, 526, 345);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -58,7 +63,7 @@ public class InterfaceConfirmacao extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				new InterfaceTelaInicial().setVisible(true);
+				new InterfaceTelaInicial(usuario).setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(417, 277, 85, 21);

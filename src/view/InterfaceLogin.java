@@ -50,6 +50,7 @@ public class InterfaceLogin extends JFrame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		Usuario usuario = new Usuario();
 		
 		JLabel lblNewLabel = new JLabel("Login");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -85,7 +86,7 @@ public class InterfaceLogin extends JFrame {
 				Usuario usuario = new Usuario();
 				usuario.login(email.getText(), senha.getText());
 				setVisible(false);
-		        new InterfaceTelaInicial().setVisible(true);
+		        new InterfaceTelaInicial(usuario).setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(225, 179, 85, 21);
@@ -95,7 +96,7 @@ public class InterfaceLogin extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-                new InterfaceCadastroCliente().setVisible(true);
+                new InterfaceCadastroCliente(usuario).setVisible(true);
 			}
 		});
 		btnNewButton_1.setBounds(85, 232, 225, 21);

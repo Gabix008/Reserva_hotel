@@ -37,7 +37,6 @@ public class InterfaceCadastroHotel {
 				try {
 					Usuario usuario = new Usuario();
 					usuario.login("pedrpg5@gmail.com", "abc");
-					//System.out.println(usuario.toString());
 					InterfaceCadastroHotel window = new InterfaceCadastroHotel(usuario);
 					window.frame.setVisible(true);
 				} catch (Exception e) {

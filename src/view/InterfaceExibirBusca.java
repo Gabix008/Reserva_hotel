@@ -62,7 +62,7 @@ public class InterfaceExibirBusca extends JFrame {
 			}
 		));
 		table_1.setToolTipText("");
-		table_1.setBounds(10, 33, 470, 272);
+		table_1.setBounds(10, 34, 470, 272);
 		getContentPane().add(table_1);
 		
 		JButton btnNewButton = new JButton("Reservar");
@@ -101,6 +101,4 @@ public class InterfaceExibirBusca extends JFrame {
 	public void setTable_1(JTable table_1) {
 		this.table_1 = table_1;
 	}
-
-	
 }

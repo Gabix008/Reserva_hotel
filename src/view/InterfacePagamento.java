@@ -12,25 +12,33 @@ import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
+
+import br.edu.ifg.Pix;
+import br.edu.ifg.Reserva;
+import br.edu.ifg.Usuario;
+
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 
 public class InterfacePagamento extends JFrame {
 
-	private JTextField textField_3;
+	private JTextField valor;
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField;
+	private JTextField codigo;
+	private JTextField reserva;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Usuario usuario = new Usuario();
+					usuario.login("gabi@gmail.com", "123");
 					InterfacePagamento window = new InterfacePagamento();
 					window.setVisible(true);
 				} catch (Exception e) {
@@ -62,9 +70,10 @@ public class InterfacePagamento extends JFrame {
 		
 		JLabel lblValor = new JLabel("Valor Total");
 		lblValor.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblValor.setBounds(14, 192, 81, 20);
+		lblValor.setBounds(298, 256, 81, 20);
 		getContentPane().add(lblValor);
 		
+		 
 		JButton btnNewButton = new JButton("Pagar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -72,80 +81,70 @@ public class InterfacePagamento extends JFrame {
 				new InterfaceConfirmacao().setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(389, 288, 85, 21);
+		btnNewButton.setBounds(366, 299, 108, 29);
 		getContentPane().add(btnNewButton);
 		
 		JLabel lblNmeroCarto = new JLabel("Número Cartão");
 		lblNmeroCarto.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNmeroCarto.setBounds(14, 217, 108, 20);
+		lblNmeroCarto.setBounds(10, 190, 108, 20);
 		getContentPane().add(lblNmeroCarto);
 		
 		JLabel lblDataValidade = new JLabel("Data Validade");
 		lblDataValidade.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblDataValidade.setBounds(14, 247, 101, 20);
+		lblDataValidade.setBounds(10, 217, 101, 20);
 		getContentPane().add(lblDataValidade);
 		
 		JLabel lblCvv = new JLabel("CVV");
 		lblCvv.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblCvv.setBounds(14, 277, 59, 20);
+		lblCvv.setBounds(10, 248, 59, 20);
 		getContentPane().add(lblCvv);
 		
 		JLabel lblParcelas = new JLabel("Parcelas");
 		lblParcelas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblParcelas.setBounds(14, 308, 59, 20);
+		lblParcelas.setBounds(10, 279, 59, 20);
 		getContentPane().add(lblParcelas);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(142, 195, 108, 19);
-		getContentPane().add(textField_3);
+		valor = new JTextField();
+		valor.setColumns(10);
+		valor.setBounds(389, 258, 85, 19);
+		getContentPane().add(valor);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(142, 221, 108, 19);
+		textField_4.setBounds(142, 192, 108, 19);
 		getContentPane().add(textField_4);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(142, 250, 108, 19);
+		textField_5.setBounds(142, 222, 108, 19);
 		getContentPane().add(textField_5);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
-		textField_6.setBounds(142, 280, 108, 19);
+		textField_6.setBounds(142, 250, 108, 19);
 		getContentPane().add(textField_6);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"A vista", "1x", "2x", "3x", "4x"}));
-		comboBox.setBounds(142, 310, 108, 21);
+		comboBox.setBounds(142, 281, 108, 21);
 		getContentPane().add(comboBox);
 		
 		JLabel lblPix = new JLabel("Código");
 		lblPix.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPix.setBounds(10, 82, 81, 20);
+		lblPix.setBounds(19, 70, 81, 20);
 		getContentPane().add(lblPix);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(142, 85, 108, 19);
-		getContentPane().add(textField_7);
-		
-		JLabel lblValor_1 = new JLabel("Valor Total");
-		lblValor_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblValor_1.setBounds(10, 112, 81, 20);
-		getContentPane().add(lblValor_1);
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(142, 115, 108, 19);
-		getContentPane().add(textField);
+		codigo = new JTextField();
+		codigo.setColumns(10);
+		codigo.setBounds(98, 72, 134, 19);
+		getContentPane().add(codigo);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Pix");
-		rdbtnNewRadioButton.setBounds(14, 41, 109, 23);
+		rdbtnNewRadioButton.setBounds(9, 37, 109, 23);
 		getContentPane().add(rdbtnNewRadioButton);
 			
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Cartão de credito");
-		rdbtnNewRadioButton_1.setBounds(14, 160, 109, 23);
+		rdbtnNewRadioButton_1.setBounds(9, 155, 109, 23);
 		getContentPane().add(rdbtnNewRadioButton_1);
 		
 		ButtonGroup grupo = new ButtonGroup();
@@ -158,7 +157,20 @@ public class InterfacePagamento extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnGerarCdigo.setBounds(279, 82, 108, 35);
+		btnGerarCdigo.setBounds(10, 113, 108, 29);
+		
 		getContentPane().add(btnGerarCdigo);
+		
+		JLabel lblValor_1 = new JLabel("Reserva");
+		lblValor_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblValor_1.setBounds(298, 222, 81, 20);
+		getContentPane().add(lblValor_1);
+		
+		reserva = new JTextField();
+		reserva.setColumns(10);
+		reserva.setBounds(389, 222, 85, 19);
+		getContentPane().add(reserva);
+		
+				
 	}
 }

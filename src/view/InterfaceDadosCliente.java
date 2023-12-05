@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import br.edu.ifg.Permissao;
+import br.edu.ifg.Usuario;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
@@ -14,13 +18,13 @@ import java.awt.event.ActionEvent;
 
 public class InterfaceDadosCliente extends JFrame {
 
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
-    private JTextField textField_4;
-    private JTextField textField_5;
-    private JTextField textField_6;
+    private JTextField nome;
+    private JTextField dataNasc;
+    private JTextField cpf;
+    private JTextField email;
+    private JTextField senha;
+    private JTextField endereco;
+    private JTextField telefone;
 
     /**
      * Launch the application.
@@ -29,7 +33,9 @@ public class InterfaceDadosCliente extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    InterfaceDadosCliente window = new InterfaceDadosCliente();
+                	Usuario usuario = new Usuario();
+					usuario.login("gabi@gmail.com", "123");
+                    InterfaceDadosCliente window = new InterfaceDadosCliente(usuario);
                     window.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -41,14 +47,14 @@ public class InterfaceDadosCliente extends JFrame {
     /**
      * Create the application.
      */
-    public InterfaceDadosCliente() {
-        initialize();
+    public InterfaceDadosCliente(Usuario usuario) {
+        initialize(usuario);
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
+    private void initialize(Usuario usuario) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 487, 353);
         getContentPane().setLayout(null);
@@ -62,15 +68,15 @@ public class InterfaceDadosCliente extends JFrame {
         lblNewLabel_1.setBounds(44, 88, 45, 13);
         getContentPane().add(lblNewLabel_1);
 
-        textField = new JTextField();
-        textField.setColumns(10);
-        textField.setBounds(148, 85, 147, 19);
-        getContentPane().add(textField);
+        nome = new JTextField();
+        nome.setColumns(10);
+        nome.setBounds(148, 85, 147, 19);
+        getContentPane().add(nome);
 
-        textField_1 = new JTextField();
-        textField_1.setColumns(10);
-        textField_1.setBounds(148, 114, 147, 19);
-        getContentPane().add(textField_1);
+        dataNasc = new JTextField();
+        dataNasc.setColumns(10);
+        dataNasc.setBounds(148, 114, 147, 19);
+        getContentPane().add(dataNasc);
 
         JLabel lblNewLabel_2 = new JLabel("Data de Nascimento");
         lblNewLabel_2.setBounds(44, 120, 94, 13);
@@ -80,15 +86,15 @@ public class InterfaceDadosCliente extends JFrame {
         lblNewLabel_1_1.setBounds(44, 143, 45, 13);
         getContentPane().add(lblNewLabel_1_1);
 
-        textField_2 = new JTextField();
-        textField_2.setColumns(10);
-        textField_2.setBounds(148, 140, 147, 19);
-        getContentPane().add(textField_2);
+        cpf = new JTextField();
+        cpf.setColumns(10);
+        cpf.setBounds(148, 140, 147, 19);
+        getContentPane().add(cpf);
 
-        textField_3 = new JTextField();
-        textField_3.setColumns(10);
-        textField_3.setBounds(148, 163, 147, 19);
-        getContentPane().add(textField_3);
+        email = new JTextField();
+        email.setColumns(10);
+        email.setBounds(148, 163, 147, 19);
+        getContentPane().add(email);
 
         JLabel lblNewLabel_1_1_1 = new JLabel("E-mail");
         lblNewLabel_1_1_1.setBounds(44, 166, 45, 13);
@@ -98,15 +104,15 @@ public class InterfaceDadosCliente extends JFrame {
         lblNewLabel_1_1_1_1.setBounds(44, 189, 45, 13);
         getContentPane().add(lblNewLabel_1_1_1_1);
 
-        textField_4 = new JTextField();
-        textField_4.setColumns(10);
-        textField_4.setBounds(148, 186, 147, 19);
-        getContentPane().add(textField_4);
+        senha = new JTextField();
+        senha.setColumns(10);
+        senha.setBounds(148, 186, 147, 19);
+        getContentPane().add(senha);
 
-        textField_5 = new JTextField();
-        textField_5.setColumns(10);
-        textField_5.setBounds(148, 209, 147, 19);
-        getContentPane().add(textField_5);
+        endereco = new JTextField();
+        endereco.setColumns(10);
+        endereco.setBounds(148, 209, 147, 19);
+        getContentPane().add(endereco);
 
         JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Endereço");
         lblNewLabel_1_1_1_1_1.setBounds(44, 212, 45, 13);
@@ -116,15 +122,15 @@ public class InterfaceDadosCliente extends JFrame {
         lblNewLabel_1_1_1_1_1_1.setBounds(44, 235, 60, 13);
         getContentPane().add(lblNewLabel_1_1_1_1_1_1);
 
-        textField_6 = new JTextField();
-        textField_6.setColumns(10);
-        textField_6.setBounds(148, 232, 147, 19);
-        getContentPane().add(textField_6);
+        telefone = new JTextField();
+        telefone.setColumns(10);
+        telefone.setBounds(148, 232, 147, 19);
+        getContentPane().add(telefone);
 
-        JComboBox<String> comboBox = new JComboBox<>();
-        comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"Masculino", "Feminino", "Não Binário"}));
-        comboBox.setBounds(148, 256, 147, 17);
-        getContentPane().add(comboBox);
+        JComboBox<String> sexo = new JComboBox<>();
+        sexo.setModel(new DefaultComboBoxModel<>(new String[] {"Masculino", "Feminino"}));
+        sexo.setBounds(148, 256, 147, 17);
+        getContentPane().add(sexo);
 
         JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("Sexo");
         lblNewLabel_1_1_1_1_1_1_1.setBounds(44, 258, 45, 13);
@@ -134,7 +140,9 @@ public class InterfaceDadosCliente extends JFrame {
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		setVisible(false);
-				new InterfaceTelaInicial().setVisible(true);
+				new InterfaceTelaInicial(usuario).setVisible(true);
+				String sx = sexo.getSelectedItem() == "Masculino" ? "masculino" : "feminino";
+				usuario.editarUsuario(usuario.getId(), nome.getText(), cpf.getText(), dataNasc.getText(), endereco.getText(), telefone.getText(), email.getText(), sx,usuario.getPermissao() == Permissao.CLIENTE? "cliente": "proprietario", senha.getText());
         	}
         });
         btnNewButton.setBounds(362, 285, 85, 21);

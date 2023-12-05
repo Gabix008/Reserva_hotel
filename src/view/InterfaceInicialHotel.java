@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import br.edu.ifg.Hotel;
 import br.edu.ifg.Usuario;
 
 import java.awt.event.ActionListener;
@@ -25,7 +26,7 @@ public class InterfaceInicialHotel extends JFrame {
 			public void run() {
 				try {
 					Usuario usuario = new Usuario();
-					usuario.login("gabi@gmail.com", "gabi123");
+					usuario.login("gabi@gmail.com", "123");
 					InterfaceInicialHotel window = new InterfaceInicialHotel(usuario);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -76,7 +77,9 @@ public class InterfaceInicialHotel extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(true);
-				new InterfaceGerenciamentoDeCadastroHotel(usuario).setVisible(true);
+				Hotel hotel = new Hotel();
+				hotel.buscarHotel(1);
+				new InterfaceGerenciamentoDeCadastroHotel(usuario, hotel).setVisible(true);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 8));

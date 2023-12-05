@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import br.edu.ifg.Usuario;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -26,7 +29,9 @@ public class InterfaceTelaInicial extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    InterfaceTelaInicial window = new InterfaceTelaInicial();
+                	Usuario usuario = new Usuario();
+					usuario.login("gabi@gmail.com", "123");
+                    InterfaceTelaInicial window = new InterfaceTelaInicial(usuario);
                     window.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -38,14 +43,14 @@ public class InterfaceTelaInicial extends JFrame {
     /**
      * Create the application.
      */
-    public InterfaceTelaInicial() {
-        initialize();
+    public InterfaceTelaInicial(Usuario usuario) {
+        initialize(usuario);
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
+    private void initialize(Usuario usuario) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 561, 427);
         getContentPane().setLayout(null);
@@ -60,7 +65,7 @@ public class InterfaceTelaInicial extends JFrame {
         btnNewButton_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		setVisible(false);
-        		new InterfaceDadosCliente().setVisible(true);
+        		new InterfaceDadosCliente(usuario).setVisible(true);
         	}
         });
         getContentPane().add(btnNewButton_1);
