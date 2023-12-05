@@ -141,10 +141,10 @@ public class ArquivoHotel {
 		for (Hotel hotel : hoteis.values()) {
 			for (Quarto quarto : hotel.getQuartos().values()) {
 				boolean status = quarto.verificarDisponibilidade(dataInicio, dataFim, hotel);
-
 				if (status) {
 					quartos.put(quarto.getId(), quarto);
 				}
+				System.out.println(quarto.toString());
 			}
 			hotel.setQuartos(quartos);
 		}

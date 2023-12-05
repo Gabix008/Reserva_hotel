@@ -3,6 +3,7 @@ package br.edu.ifg;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 public class Reserva {
 	private int id;
@@ -56,6 +57,11 @@ public class Reserva {
 		this.setUsuario(usuario);
 		this.setHotel(hotel);
 		this.setQuarto(quarto);
+	}
+
+	public Map<Integer, Reserva> getReservas(int idUsuario, Usuario usuario) {
+		Map<Integer, Reserva> reservas = this.bd.getReservas(idUsuario, usuario);
+		return reservas;
 	}
 
 	public void realizarPagamento() {

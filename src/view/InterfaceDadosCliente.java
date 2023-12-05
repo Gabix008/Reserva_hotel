@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import br.edu.ifg.Usuario;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
@@ -25,30 +28,30 @@ public class InterfaceDadosCliente extends JFrame {
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    InterfaceDadosCliente window = new InterfaceDadosCliente();
-                    window.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+    // public static void main(String[] args) {
+    // EventQueue.invokeLater(new Runnable() {
+    // public void run() {
+    // try {
+    // InterfaceDadosCliente window = new InterfaceDadosCliente();
+    // window.setVisible(true);
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // }
+    // }
+    // });
+    // }
 
     /**
      * Create the application.
      */
-    public InterfaceDadosCliente() {
-        initialize();
+    public InterfaceDadosCliente(Usuario usuario) {
+        initialize(usuario);
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
+    private void initialize(Usuario usuario) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 487, 353);
         getContentPane().setLayout(null);
@@ -122,7 +125,7 @@ public class InterfaceDadosCliente extends JFrame {
         getContentPane().add(textField_6);
 
         JComboBox<String> comboBox = new JComboBox<>();
-        comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"Masculino", "Feminino", "Não Binário"}));
+        comboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Não Binário" }));
         comboBox.setBounds(148, 256, 147, 17);
         getContentPane().add(comboBox);
 
@@ -132,10 +135,10 @@ public class InterfaceDadosCliente extends JFrame {
 
         JButton btnNewButton = new JButton("Salvar");
         btnNewButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		setVisible(false);
-				new InterfaceTelaInicial().setVisible(true);
-        	}
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new InterfaceTelaInicial(usuario).setVisible(true);
+            }
         });
         btnNewButton.setBounds(362, 285, 85, 21);
         getContentPane().add(btnNewButton);

@@ -50,7 +50,7 @@ public class Usuario {
 
 	public void editarUsuario(int id, String nome, String cpf, String dataNasc, String endereco, String telefone,
 			String email,
-			String sexo, String permissao, String codigoReserva, String senha) {
+			String sexo, String permissao, String senha) {
 
 		this.adicionarDados(id, nome, cpf, dataNasc, endereco, telefone, email, sexo, permissao, senha);
 		this.bd.editar(id, this.toString());
@@ -100,7 +100,8 @@ public class Usuario {
 		this.setPermissao(permissaoUsuario);
 	}
 
-	public Hotel cadastraHotel(String nome, String endereco, String descricao, String telefone, String cidade, boolean pagamentoAnte) {
+	public Hotel cadastraHotel(String nome, String endereco, String descricao, String telefone, String cidade,
+			boolean pagamentoAnte) {
 		boolean permissao = this.validarPermissao();
 		boolean status = this.validarDadoHotel(nome, endereco, descricao, cidade, telefone);
 
@@ -115,7 +116,7 @@ public class Usuario {
 		}
 
 		Hotel hotel = new Hotel();
-		hotel.cadastrar(nome, endereco, descricao, cidade,telefone, pagamentoAnte, this.getId());
+		hotel.cadastrar(nome, endereco, descricao, cidade, telefone, pagamentoAnte, this.getId());
 		System.out.println("Hotel criado");
 		return hotel;
 	}
