@@ -5,7 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
+
+import br.edu.ifg.Usuario;
+
 import javax.swing.JButton;
 
 public class InterfaceCadastroHotel {
@@ -123,5 +129,14 @@ public class InterfaceCadastroHotel {
 		textField_5.setColumns(10);
 		textField_5.setBounds(134, 120, 225, 19);
 		frame.getContentPane().add(textField_5);
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Usuario usuario = new Usuario();
+				String sx = sexo.getSelectedItem() == "Masculino"? "masculino" :"feminino";
+				String permissao = grupo.getSelection().getActionCommand() == "cliente" ? "cliente" : "proprietario"; 
+				usuario.cadastrar(nome.getText(), cpf.getText(), dataNasc.getText(),endereco.getText(), telefone.getText(), email.getText(), sx, permissao, senha.getText());
+			}
+		});
 	}
 }

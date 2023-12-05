@@ -51,7 +51,7 @@ public class InterfaceCadastroCliente extends JFrame {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents of the 
 	 */
 	private void initialize() {
 		setBounds(100, 100, 516, 355);
@@ -61,7 +61,7 @@ public class InterfaceCadastroCliente extends JFrame {
 		JLabel lblNewLabel = new JLabel("Cadastro");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNewLabel.setBounds(194, 11, 94, 29);
-		frame.getContentPane().add(lblNewLabel);
+		getContentPane().add(lblNewLabel);
 		
 		JLabel label = new JLabel("New label");
 		label.setBounds(10, 50, 5, 6);
@@ -77,7 +77,7 @@ public class InterfaceCadastroCliente extends JFrame {
 		
 		JLabel lblNewLabel_1_1 = new JLabel(" CPF ou CNPJ");
 		lblNewLabel_1_1.setBounds(90, 133, 79, 13);
-		frame.getContentPane().add(lblNewLabel_1_1);
+		getContentPane().add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("E-mail");
 		lblNewLabel_1_1_1.setBounds(90, 153, 45, 13);
@@ -97,42 +97,42 @@ public class InterfaceCadastroCliente extends JFrame {
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("Cadastrar como ");
 		lblNewLabel_1_1_1_1_1_1_1.setBounds(90, 284, 79, 13);
-		frame.getContentPane().add(lblNewLabel_1_1_1_1_1_1_1);
+		getContentPane().add(lblNewLabel_1_1_1_1_1_1_1);
 		
 		nome = new JTextField();
 		nome.setBounds(194, 75, 147, 19);
-		frame.getContentPane().add(nome);
+		getContentPane().add(nome);
 		nome.setColumns(10);
 		
 		dataNasc = new JTextField();
 		dataNasc.setColumns(10);
 		dataNasc.setBounds(194, 104, 147, 19);
-		frame.getContentPane().add(dataNasc);
+		getContentPane().add(dataNasc);
 		
 		cpf = new JTextField();
 		cpf.setColumns(10);
 		cpf.setBounds(194, 130, 147, 19);
-		frame.getContentPane().add(cpf);
+		getContentPane().add(cpf);
 		
 		email = new JTextField();
 		email.setColumns(10);
 		email.setBounds(194, 153, 147, 19);
-		frame.getContentPane().add(email);
+		getContentPane().add(email);
 		
 		senha = new JTextField();
 		senha.setColumns(10);
 		senha.setBounds(194, 176, 147, 19);
-		frame.getContentPane().add(senha);
+		getContentPane().add(senha);
 		
 		endereco = new JTextField();
 		endereco.setColumns(10);
 		endereco.setBounds(194, 199, 147, 19);
-		frame.getContentPane().add(endereco);
+		getContentPane().add(endereco);
 		
 		telefone = new JTextField();
 		telefone.setColumns(10);
 		telefone.setBounds(194, 222, 147, 19);
-		frame.getContentPane().add(telefone);
+		getContentPane().add(telefone);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -150,17 +150,17 @@ public class InterfaceCadastroCliente extends JFrame {
 		JComboBox<Object> sexo = new JComboBox<Object>();
 		sexo.setModel(new DefaultComboBoxModel<Object>(new String[] {"Selecione o sexo", "Masculino", "Feminino"}));
 		sexo.setBounds(194, 246, 147, 17);
-		frame.getContentPane().add(sexo);
+		getContentPane().add(sexo);
 		
 		JRadioButton cliente = new JRadioButton("Cliente");
 		cliente.setBounds(194, 276, 60, 29);
 		cliente.setActionCommand("cliente");
-		frame.getContentPane().add(cliente);
+		getContentPane().add(cliente);
 		
 		JRadioButton proprietario = new JRadioButton("Proprietario");
 		proprietario.setBounds(254, 279, 126, 23);
 		proprietario.setActionCommand("proprietario");
-		frame.getContentPane().add(proprietario);
+		getContentPane().add(proprietario);
 		
 		ButtonGroup grupo = new ButtonGroup();
 		grupo.add(cliente);
@@ -168,7 +168,7 @@ public class InterfaceCadastroCliente extends JFrame {
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1_1 = new JLabel("Sexo");
 		lblNewLabel_1_1_1_1_1_1_1_1.setBounds(90, 249, 45, 13);
-		frame.getContentPane().add(lblNewLabel_1_1_1_1_1_1_1_1);
+		getContentPane().add(lblNewLabel_1_1_1_1_1_1_1_1);
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
